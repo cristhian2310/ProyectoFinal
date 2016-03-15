@@ -19,7 +19,7 @@ namespace ProyectoFinal
 
         private void esoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 o = new Form1();
+            FrmDepartamentos o = new FrmDepartamentos();
             o.Show();
         }
 

@@ -53,6 +53,9 @@
             this.SalarioMaximo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SalarioMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuestos)).BeginInit();
             this.SuspendLayout();
@@ -67,28 +70,28 @@
             // 
             // txtNivelRiesgo
             // 
-            this.txtNivelRiesgo.Location = new System.Drawing.Point(97, 86);
+            this.txtNivelRiesgo.Location = new System.Drawing.Point(97, 64);
             this.txtNivelRiesgo.Name = "txtNivelRiesgo";
             this.txtNivelRiesgo.Size = new System.Drawing.Size(188, 20);
             this.txtNivelRiesgo.TabIndex = 1;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(97, 50);
+            this.txtNombre.Location = new System.Drawing.Point(97, 38);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(188, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // txtSalarioMin
             // 
-            this.txtSalarioMin.Location = new System.Drawing.Point(97, 160);
+            this.txtSalarioMin.Location = new System.Drawing.Point(97, 116);
             this.txtSalarioMin.Name = "txtSalarioMin";
             this.txtSalarioMin.Size = new System.Drawing.Size(188, 20);
             this.txtSalarioMin.TabIndex = 3;
             // 
             // txtSalarioMax
             // 
-            this.txtSalarioMax.Location = new System.Drawing.Point(97, 123);
+            this.txtSalarioMax.Location = new System.Drawing.Point(97, 90);
             this.txtSalarioMax.Name = "txtSalarioMax";
             this.txtSalarioMax.Size = new System.Drawing.Size(188, 20);
             this.txtSalarioMax.TabIndex = 4;
@@ -97,7 +100,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 12);
+            this.label1.Location = new System.Drawing.Point(18, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 5;
@@ -106,7 +109,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 50);
+            this.label2.Location = new System.Drawing.Point(13, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 6;
@@ -115,32 +118,36 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 88);
+            this.label3.Location = new System.Drawing.Point(13, 71);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Nivel de riesgo";
+            this.label3.Text = "Cedula";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 123);
+            this.label4.Location = new System.Drawing.Point(3, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
+            this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Salario maximo";
+            this.label4.Text = "Departamento";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 163);
+            this.label5.Location = new System.Drawing.Point(13, 123);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Salario minimo";
+            this.label5.Text = "Puesto";
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.btnBorrar);
             this.panel1.Controls.Add(this.btnActualizar);
             this.panel1.Controls.Add(this.BtnGuardar);
@@ -157,12 +164,12 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(450, 190);
+            this.panel1.Size = new System.Drawing.Size(450, 235);
             this.panel1.TabIndex = 10;
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(305, 157);
+            this.btnBorrar.Location = new System.Drawing.Point(305, 109);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(125, 23);
             this.btnBorrar.TabIndex = 13;
@@ -172,7 +179,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(305, 121);
+            this.btnActualizar.Location = new System.Drawing.Point(305, 79);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(125, 23);
             this.btnActualizar.TabIndex = 12;
@@ -182,7 +189,7 @@
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(305, 83);
+            this.BtnGuardar.Location = new System.Drawing.Point(305, 50);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(125, 23);
             this.BtnGuardar.TabIndex = 11;
@@ -192,7 +199,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(305, 45);
+            this.btnLimpiar.Location = new System.Drawing.Point(305, 12);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(125, 23);
             this.btnLimpiar.TabIndex = 10;
@@ -202,7 +209,7 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(12, 247);
+            this.btnFiltrar.Location = new System.Drawing.Point(12, 296);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(91, 23);
             this.btnFiltrar.TabIndex = 14;
@@ -211,14 +218,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 247);
+            this.textBox1.Location = new System.Drawing.Point(109, 296);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(188, 20);
             this.textBox1.TabIndex = 15;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(303, 245);
+            this.btnConsultar.Location = new System.Drawing.Point(303, 283);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(125, 23);
             this.btnConsultar.TabIndex = 16;
@@ -235,10 +242,10 @@
             this.NivelRiesgo,
             this.SalarioMaximo,
             this.SalarioMinimo});
-            this.dgvPuestos.Location = new System.Drawing.Point(13, 276);
+            this.dgvPuestos.Location = new System.Drawing.Point(12, 355);
             this.dgvPuestos.MultiSelect = false;
             this.dgvPuestos.Name = "dgvPuestos";
-            this.dgvPuestos.Size = new System.Drawing.Size(429, 150);
+            this.dgvPuestos.Size = new System.Drawing.Size(642, 183);
             this.dgvPuestos.TabIndex = 17;
             // 
             // Id
@@ -287,11 +294,34 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Gestión de Puestos";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 149);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Salario";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(97, 142);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(188, 20);
+            this.textBox2.TabIndex = 15;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(97, 168);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(188, 20);
+            this.textBox3.TabIndex = 16;
+            // 
             // FrmPuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 444);
+            this.ClientSize = new System.Drawing.Size(666, 567);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvPuestos);
             this.Controls.Add(this.btnConsultar);
@@ -336,5 +366,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NivelRiesgo;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalarioMaximo;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalarioMinimo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

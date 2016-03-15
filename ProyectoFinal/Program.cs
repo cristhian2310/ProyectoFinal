@@ -20,7 +20,7 @@ namespace ProyectoFinal
 
             Application.Run(new FrmPuestos());
             //Application.Run(new Login());
-            //Application.Run(new Form1());
+            //Application.Run(new ());
         }
     }
 }
