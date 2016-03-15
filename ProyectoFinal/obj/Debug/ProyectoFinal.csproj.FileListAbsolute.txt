@@ -56,3 +56,6 @@ C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Logi
 C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
 C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.SistemaNomina.resources
 C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.GenerateResource.Cache
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmPuestos.resources
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Login.resources
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.SistemaNomina.resources

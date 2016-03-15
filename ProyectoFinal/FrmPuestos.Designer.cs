@@ -92,6 +92,7 @@
             this.txtSalarioMax.Name = "txtSalarioMax";
             this.txtSalarioMax.Size = new System.Drawing.Size(188, 20);
             this.txtSalarioMax.TabIndex = 4;
+            this.txtSalarioMax.TextChanged += new System.EventHandler(this.txtSalarioMax_TextChanged);
             // 
             // label1
             // 

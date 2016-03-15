@@ -17,6 +17,7 @@ namespace ProyectoFinal
         {
             InitializeComponent();
             dgvPuestos.AutoGenerateColumns = false;
+            dgvPuestos.AllowUserToAddRows = false;
             cargarPuestos();
         }
 
@@ -31,17 +32,41 @@ namespace ProyectoFinal
             dgvPuestos.DataSource = puestosbing;
         }
 
+        public bool validar(int id = 0) {
+
+            var correcto = true;
+
+            if (id != 0) {
+                if (txtNombre.Text == "" || txtNivelRiesgo.Text == "" || txtSalarioMax.Text == "" || txtSalarioMin.Text == "" || txtId.Text =="" )
+                {
+                    correcto = false;
+                }
+            }
+            else { 
+                if (txtNombre.Text == "" || txtNivelRiesgo.Text == "" || txtSalarioMax.Text == "" || txtSalarioMin.Text == "")
+                {
+                    correcto = false;
+                }
+            }
+            return correcto;
+        }
+
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-
-            Puestos puesto = new Puestos();
-            puesto.Nombre = txtNombre.Text;
-            puesto.SalarioMaximo =  Convert.ToDouble (txtSalarioMax.Text);
-            puesto.SalarioMinimo = Convert.ToDouble (txtSalarioMax.Text);
-            puesto.NivelRiesgo = txtNivelRiesgo.Text;
-            conexion.Puestos.Add(puesto);
-            conexion.SaveChanges();
-            cargarPuestos();
+            if (validar())
+            {
+                Puestos puesto = new Puestos();
+                puesto.Nombre = txtNombre.Text;
+                puesto.SalarioMaximo = Convert.ToDouble(txtSalarioMax.Text);
+                puesto.SalarioMinimo = Convert.ToDouble(txtSalarioMax.Text);
+                puesto.NivelRiesgo = txtNivelRiesgo.Text;
+                conexion.Puestos.Add(puesto);
+                conexion.SaveChanges();
+                cargarPuestos();
+            }
+            else {
+                MessageBox.Show("Hay campos vacios.");
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -74,16 +99,28 @@ namespace ProyectoFinal
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            if (txtId.Text != "")
+            {
+                if (validar(Convert.ToInt32(txtId.Text)))
+                {
 
-                int id = Convert.ToInt32(txtId.Text);
-                var puesto = conexion.Puestos.FirstOrDefault(r => r.Id == id);
-                puesto.Nombre = txtNombre.Text;
-                puesto.SalarioMaximo = Convert.ToDouble(txtSalarioMax.Text);
-                puesto.SalarioMinimo = Convert.ToDouble(txtSalarioMax.Text);
-                puesto.NivelRiesgo = txtNivelRiesgo.Text;
-                conexion.SaveChanges();
-                cargarPuestos();
-            
+                    int id = Convert.ToInt32(txtId.Text);
+                    var puesto = conexion.Puestos.FirstOrDefault(r => r.Id == id);
+                    puesto.Nombre = txtNombre.Text;
+                    puesto.SalarioMaximo = Convert.ToDouble(txtSalarioMax.Text);
+                    puesto.SalarioMinimo = Convert.ToDouble(txtSalarioMax.Text);
+                    puesto.NivelRiesgo = txtNivelRiesgo.Text;
+                    conexion.SaveChanges();
+                    cargarPuestos();
+                }
+                else
+                {
+                    MessageBox.Show("Hay campos vacios.");
+                }
+            }
+            else {
+                MessageBox.Show("No ha seleccionado ninún puesto.");
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -109,6 +146,11 @@ namespace ProyectoFinal
                 
 
             }
+        }
+
+        private void txtSalarioMax_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 
