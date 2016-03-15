@@ -1,0 +1,58 @@
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe.config
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csprojResolveAssemblyReference.cache
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Form1.resources
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.GenerateResource.Cache
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.pdb
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.dll
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.xml
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.exe
+c:\users\cristhian23\documents\visual studio 2013\Projects\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe.config
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.exe
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.pdb
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.dll
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.xml
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csprojResolveAssemblyReference.cache
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Form1.resources
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.GenerateResource.Cache
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe.config
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.exe
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.pdb
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.dll
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.xml
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csprojResolveAssemblyReference.cache
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Form1.resources
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.GenerateResource.Cache
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.SistemaNomina.resources
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Login.resources
+C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmPuestos.resources
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe.config
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.exe
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.pdb
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.dll
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.xml
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csprojResolveAssemblyReference.cache
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Form1.resources
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmPuestos.resources
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Login.resources
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.SistemaNomina.resources
+C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.GenerateResource.Cache

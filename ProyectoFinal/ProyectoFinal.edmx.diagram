@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="609a6ef756144646bba0254006ae2821" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="ProyectoFinalModel.Departamentos" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.Empleados" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.Puestos" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.RegistroTransacciones" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.TiposDeducciones" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.TiposIngresos" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoFinalModel.FK_Empleados_Puestos" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalModel.FK_RegistroTransacciones_Empleados" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalModel.FK_RegistroTransacciones_TiposDeducciones" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
