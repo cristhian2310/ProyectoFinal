@@ -20,8 +20,8 @@ namespace ProyectoFinal
         public int IdDepartamento { get; set; }
         public int IdPuesto { get; set; }
         public Nullable<double> SalarioMensual { get; set; }
-        public int IdNomina { get; set; }
     
+        public virtual Departamentos Departamentos { get; set; }
         public virtual Puestos Puestos { get; set; }
         public virtual RegistroTransacciones RegistroTransacciones { get; set; }
     }

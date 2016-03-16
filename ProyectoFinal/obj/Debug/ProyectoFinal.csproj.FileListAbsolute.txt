@@ -21,7 +21,6 @@ C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.xml
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csprojResolveAssemblyReference.cache
-C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Form1.resources
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.GenerateResource.Cache
 C:\Users\Cristhian23\Desktop\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe.config
@@ -59,3 +58,5 @@ C:\Users\Debara\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.cspr
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmPuestos.resources
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Login.resources
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.SistemaNomina.resources
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmDepartamentos.resources
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmEmpleados.resources

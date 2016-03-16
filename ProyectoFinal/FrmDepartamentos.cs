@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinal.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,15 +27,25 @@ namespace ProyectoFinal
         }
 
         public void cargarDepartamentos() {
-            var yourList = conexion.Departamentos.ToList();
-            List<String> lista;
-            //foreach(var e in yourList){
-            //    conexion.Empleados.Where(t=>t.Id)
-            //    lista.Add();
-            //}
 
-            var listBinding = new BindingList<Departamentos>(yourList);
-            dgvDepartamentos.DataSource = listBinding;
+            var departamentosViewModel = new List<DepartamentoViewModel>();
+  
+            var p = conexion.Departamentos.ToList();
+
+            foreach (var emp in p)
+            {
+                DepartamentoViewModel e = new DepartamentoViewModel();
+                e.Id = emp.Id;
+                e.Nombre = emp.Nombre;
+                e.Responsable = conexion.Empleados.FirstOrDefault(l=>l.Id == emp.Responsable).Nombre;
+                e.Ubicacion = emp.Ubicacion;
+
+                departamentosViewModel.Add(e);
+            }
+            var depa = new BindingList<DepartamentoViewModel>(departamentosViewModel);
+            dgvDepartamentos.DataSource = depa;
+
+
         }
 
         private void btnConsultarDepartamento_Click(object sender, EventArgs e)
@@ -60,15 +71,30 @@ namespace ProyectoFinal
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBuscar.Text)) {
-                dgvDepartamentos.DataSource = conexion.Departamentos.ToList();
-            }
 
-            var depatamentos = conexion.Departamentos.Where(y => y.Nombre.Contains(this.textBuscar.Text));
-            //var depatamentos = conexion.Departamentos.Where(y => y.Nombre == this.textBuscar.Text);
-            if(depatamentos!=null){
-                dgvDepartamentos.DataSource = depatamentos.ToList();
+                cargarDepartamentos();
             }
-             
+            else {
+                var resultados = conexion.Departamentos.Where(y => y.Nombre.Contains(this.textBuscar.Text));
+
+                if (resultados != null)
+                {
+                    var departamentosViewModel = new List<DepartamentoViewModel>();
+
+                    foreach (var emp in resultados)
+                    {
+                        var l = new DepartamentoViewModel();
+                        l.Id = emp.Id;
+                        l.Nombre = emp.Nombre;
+                        l.Responsable = conexion.Empleados.FirstOrDefault(m => m.Id == emp.Responsable).Nombre;
+                        l.Ubicacion = emp.Ubicacion;
+
+                        departamentosViewModel.Add(l);
+                    }
+                    var depa = new BindingList<DepartamentoViewModel>(departamentosViewModel);
+                    dgvDepartamentos.DataSource = depa;
+                }
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

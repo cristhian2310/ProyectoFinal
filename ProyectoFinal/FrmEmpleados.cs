@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinal.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,28 +11,58 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal
 {
-    public partial class FrmPuestos : Form
+    public partial class FrmEmpleados : Form
     {
         ProyectoFinalEntities1 conexion = new ProyectoFinalEntities1();
-        public FrmPuestos()
+        public FrmEmpleados()
         {
             InitializeComponent();
-            dgvPuestos.AutoGenerateColumns = false;
-            dgvPuestos.AllowUserToAddRows = false;
+            dgvEmpleados.AutoGenerateColumns = false;
+            dgvEmpleados.AllowUserToAddRows = false;            
+            cargarEmpleados();
+            cargarCombos();
             
-            cargarPuestos();
-            
+        }
+
+        public void cargarCombos() {
+            var departamentos = conexion.Departamentos.ToList();
+            var departamentosBinding = new BindingList<Departamentos>(departamentos);
+            txtDepartameto.DataSource = departamentosBinding;
+            txtDepartameto.DisplayMember = "Nombre";
+            txtDepartameto.ValueMember = "Id";
+
+
+            var puestos = conexion.Puestos.ToList();
+            var puestosBinding = new BindingList<Puestos>(puestos);
+            txtPuesto.DataSource = puestosBinding;
+            txtPuesto.DisplayMember = "Nombre";
+            txtPuesto.ValueMember = "Id";
+
         }
 
         private void FrmPuestos_Load(object sender, EventArgs e)
         {
 
         }
-        public void cargarPuestos(){
+        public void cargarEmpleados(){
 
-            var p = conexion.Puestos.ToList();
-            var puestosbing = new BindingList<Puestos>(p);
-            dgvPuestos.DataSource = puestosbing;
+            var empleadosViewModel = new List<EmpleadosViewModel>();
+            var p = conexion.Empleados.ToList();
+
+
+            foreach(var emp in p){
+               EmpleadosViewModel e = new EmpleadosViewModel();
+               e.Id = emp.Id;
+               e.Departamento = emp.Departamentos.Nombre;
+               e.Cedula = emp.Cedula;
+               e.Puesto = emp.Puestos.Nombre;
+               e.SalarioMensual = emp.SalarioMensual;
+               e.Nombre = emp.Nombre;
+
+               empleadosViewModel.Add(e);
+            }
+            var empleados = new BindingList<EmpleadosViewModel>(empleadosViewModel);
+            dgvEmpleados.DataSource = empleados;
         }
 
         public bool validar(int id = 0) {
@@ -39,13 +70,23 @@ namespace ProyectoFinal
             var correcto = true;
 
             if (id != 0) {
-                if (txtNombre.Text == "" || txtNivelRiesgo.Text == "" || txtSalarioMax.Text == "" || txtSalarioMin.Text == "" || txtId.Text =="" )
+                if (txtNombre.Text == "" ||
+                    txtCedula.Text == "" ||
+                    txtDepartameto.Text == "" ||
+                    txtSalario.Text == "" ||
+                    txtPuesto.Text == "" ||
+                    txtId.Text =="" 
+                    )
                 {
                     correcto = false;
                 }
             }
-            else { 
-                if (txtNombre.Text == "" || txtNivelRiesgo.Text == "" || txtSalarioMax.Text == "" || txtSalarioMin.Text == "")
+            else {
+                if (txtNombre.Text == "" ||
+                    txtCedula.Text == "" ||
+                    txtDepartameto.Text == "" ||
+                    txtSalario.Text == "" ||
+                    txtPuesto.Text == "")
                 {
                     correcto = false;
                 }
@@ -57,14 +98,18 @@ namespace ProyectoFinal
         {
             if (validar())
             {
-                Puestos puesto = new Puestos();
-                puesto.Nombre = txtNombre.Text;
-                puesto.SalarioMaximo = Convert.ToDouble(txtSalarioMax.Text);
-                puesto.SalarioMinimo = Convert.ToDouble(txtSalarioMax.Text);
-                puesto.NivelRiesgo = txtNivelRiesgo.Text;
-                conexion.Puestos.Add(puesto);
+                Empleados empleados = new Empleados();
+                
+                empleados.Nombre = txtNombre.Text;
+                empleados.SalarioMensual = Convert.ToDouble(txtSalario.Text);
+                empleados.Cedula = txtCedula.Text;
+                empleados.IdDepartamento = Convert.ToInt32(txtDepartameto.SelectedValue);
+                empleados.IdPuesto = Convert.ToInt32(txtPuesto.SelectedValue);
+                empleados.SalarioMensual = Convert.ToDouble(txtSalario.Text);
+
+                conexion.Empleados.Add(empleados);
                 conexion.SaveChanges();
-                cargarPuestos();
+                cargarEmpleados();
             }
             else {
                 MessageBox.Show("Hay campos vacios.");
@@ -75,26 +120,26 @@ namespace ProyectoFinal
         {
             txtId.Text = "";
             txtNombre.Text = "";
-            txtSalarioMax.Text = "";
-            txtSalarioMin.Text = "";
-            txtNivelRiesgo.Text = "";
+            txtDepartameto.Text = "";
+            txtPuesto.Text = "";
+            txtCedula.Text = "";
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            var seleccion = dgvPuestos.SelectedRows;
+            var seleccion = dgvEmpleados.SelectedRows;
             if (seleccion.Count > 0)
             {
                 int selectedIndex = seleccion[0].Index;
 
-                int rowID = int.Parse(dgvPuestos[0, selectedIndex].Value.ToString());
+                int rowID = int.Parse(dgvEmpleados[0, selectedIndex].Value.ToString());
 
-                Puestos dep = conexion.Puestos.FirstOrDefault(r => r.Id == rowID);
+                Empleados dep = conexion.Empleados.FirstOrDefault(r => r.Id == rowID);
 
-                conexion.Puestos.Remove(dep);
+                conexion.Empleados.Remove(dep);
                 conexion.SaveChanges();
-                dgvPuestos.Rows.RemoveAt(seleccion[0].Index);
-                cargarPuestos();
+                dgvEmpleados.Rows.RemoveAt(seleccion[0].Index);
+                cargarEmpleados();
 
             }
         }
@@ -107,13 +152,17 @@ namespace ProyectoFinal
                 {
 
                     int id = Convert.ToInt32(txtId.Text);
-                    var puesto = conexion.Puestos.FirstOrDefault(r => r.Id == id);
-                    puesto.Nombre = txtNombre.Text;
-                    puesto.SalarioMaximo = Convert.ToDouble(txtSalarioMax.Text);
-                    puesto.SalarioMinimo = Convert.ToDouble(txtSalarioMax.Text);
-                    puesto.NivelRiesgo = txtNivelRiesgo.Text;
+                    var empleados = conexion.Empleados.FirstOrDefault(r => r.Id == id);
+
+                    empleados.Nombre = txtNombre.Text;
+                    empleados.SalarioMensual = Convert.ToDouble(txtSalario.Text);
+                    empleados.Cedula = txtCedula.Text;
+                    empleados.IdDepartamento = Convert.ToInt32(txtDepartameto.SelectedValue);
+                    empleados.IdPuesto = Convert.ToInt32(txtPuesto.SelectedValue);
+                    empleados.SalarioMensual = Convert.ToDouble(txtSalario.Text);
+
                     conexion.SaveChanges();
-                    cargarPuestos();
+                    cargarEmpleados();
                 }
                 else
                 {
@@ -127,23 +176,32 @@ namespace ProyectoFinal
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            var seleccion = dgvPuestos.SelectedRows;
+            var seleccion = dgvEmpleados.SelectedRows;
             if (seleccion.Count > 0)
             {
 
                 int selectedIndex = seleccion[0].Index;
 
-                int rowID = int.Parse(dgvPuestos[0, selectedIndex].Value.ToString());
-                int empeladoid = int.Parse(dgvPuestos[3, selectedIndex].Value.ToString());
+                int rowID = int.Parse(dgvEmpleados[0, selectedIndex].Value.ToString());
+               // int empeladoid = int.Parse(dgvEmpleados[3, selectedIndex].Value.ToString());
                 
-                Puestos puesto = conexion.Puestos.FirstOrDefault(r => r.Id == rowID);
+                Empleados empleado = conexion.Empleados.FirstOrDefault(r => r.Id == rowID);
+
+                txtDepartameto.SelectedValue = empleado.IdDepartamento;
+
+                txtPuesto.SelectedValue = empleado.IdPuesto;
+
+                txtId.Text = Convert.ToString(empleado.Id);
+                txtNombre.Text = empleado.Nombre;
+                txtCedula.Text = empleado.Cedula;
+                txtSalario.Text = Convert.ToString(empleado.SalarioMensual);
+
+                //txtDepartameto.Text =Convert.ToString(puesto.SalarioMaximo);
+                //txtPuesto.Text =Convert.ToString(puesto.SalarioMinimo);
+                
+                
 
 
-                txtId.Text = Convert.ToString(puesto.Id);
-                txtNombre.Text = puesto.Nombre;
-                txtSalarioMax.Text =Convert.ToString(puesto.SalarioMaximo);
-                txtSalarioMin.Text =Convert.ToString(puesto.SalarioMinimo);
-                txtNivelRiesgo.Text = puesto.NivelRiesgo;
 
                 
 
@@ -158,6 +216,43 @@ namespace ProyectoFinal
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtBuscar.Text))
+            {
+                cargarEmpleados();
+            }
+            else
+            {
+                var resultados = conexion.Empleados.Where(y => y.Nombre.Contains(this.txtBuscar.Text));
+
+                if (resultados != null)
+                {
+                    var empleadosViewModel = new List<EmpleadosViewModel>();
+
+                    foreach (var emp in resultados)
+                    {
+                        var p = new EmpleadosViewModel();
+                        p.Id = emp.Id;
+                        p.Departamento = emp.Departamentos.Nombre;
+                        p.Cedula = emp.Cedula;
+                        p.Puesto = emp.Puestos.Nombre;
+                        p.SalarioMensual = emp.SalarioMensual;
+                        p.Nombre = emp.Nombre;
+
+                        empleadosViewModel.Add(p);
+                    }
+                    var empleados = new BindingList<EmpleadosViewModel>(empleadosViewModel);
+                    dgvEmpleados.DataSource = empleados;
+                }
+            }
         }
 
 

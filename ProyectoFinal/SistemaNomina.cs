@@ -27,5 +27,22 @@ namespace ProyectoFinal
         {
 
         }
+
+        private void mismoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEmpleados o= new FrmEmpleados();
+            o.Show();
+        }
+
+        private void gestiónDePuestosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPuestos o = new FrmPuestos();
+            o.Show();
+        }
+
+        private void gestiónDeTiposDeIngresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

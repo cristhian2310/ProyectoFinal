@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ProyectoFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ProyectoFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Departamentos">
     <Key>
       <PropertyRef Name="Id" />
@@ -19,7 +19,6 @@
     <Property Name="IdDepartamento" Type="int" Nullable="false" />
     <Property Name="IdPuesto" Type="int" Nullable="false" />
     <Property Name="SalarioMensual" Type="float" />
-    <Property Name="IdNomina" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Puestos">
     <Key>
@@ -61,6 +60,18 @@
     <Property Name="DependeSalario" Type="nchar" MaxLength="10" />
     <Property Name="Estado" Type="varchar" MaxLength="50" />
   </EntityType>
+  <Association Name="FK_Empleados_Departamentos">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Empleados_Puestos">
     <End Role="Puestos" Type="Self.Puestos" Multiplicity="1" />
     <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
@@ -104,6 +115,10 @@
     <EntitySet Name="RegistroTransacciones" EntityType="Self.RegistroTransacciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TiposDeducciones" EntityType="Self.TiposDeducciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TiposIngresos" EntityType="Self.TiposIngresos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Empleados_Departamentos" Association="Self.FK_Empleados_Departamentos">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
     <AssociationSet Name="FK_Empleados_Puestos" Association="Self.FK_Empleados_Puestos">
       <End Role="Puestos" EntitySet="Puestos" />
       <End Role="Empleados" EntitySet="Empleados" />

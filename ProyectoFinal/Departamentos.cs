@@ -14,9 +14,16 @@ namespace ProyectoFinal
     
     public partial class Departamentos
     {
+        public Departamentos()
+        {
+            this.Empleados = new HashSet<Empleados>();
+        }
+    
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Ubicacion { get; set; }
         public Nullable<int> Responsable { get; set; }
+    
+        public virtual ICollection<Empleados> Empleados { get; set; }
     }
 }
