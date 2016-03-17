@@ -108,32 +108,72 @@ namespace ProyectoFinal
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             var seleccion = dgvDepartamentos.SelectedRows;
-            if (seleccion.Count > 0) { 
-                int selectedIndex = seleccion[0].Index;
+            if (seleccion.Count > 0) {
+                try
+                {
+                    int selectedIndex = seleccion[0].Index;
 
-                int rowID = int.Parse(dgvDepartamentos[0, selectedIndex].Value.ToString());
+                    int rowID = int.Parse(dgvDepartamentos[0, selectedIndex].Value.ToString());
 
-                Departamentos dep = conexion.Departamentos.FirstOrDefault(r => r.Id == rowID);
+                    Departamentos dep = conexion.Departamentos.FirstOrDefault(r => r.Id == rowID);
 
-                conexion.Departamentos.Remove(dep);
-                conexion.SaveChanges();
-                dgvDepartamentos.Rows.RemoveAt(seleccion[0].Index);
-                cargarDepartamentos();
-
+                    conexion.Departamentos.Remove(dep);
+                    conexion.SaveChanges();
+                    dgvDepartamentos.Rows.RemoveAt(seleccion[0].Index);
+                    cargarDepartamentos();
+                }
+                catch {
+                    MessageBox.Show("Este departarmento no puede ser borrado ya que posee empleados.");
+                }
             }
+        }
+
+        public bool validar(int id =0) {
+
+            var correcto = true;
+
+            if (id != 0)
+            {
+                if (String.IsNullOrWhiteSpace(txtNombre.Text) ||
+                    String.IsNullOrWhiteSpace(txtUbicacion.Text)||
+                    String.IsNullOrWhiteSpace(txtId.Text))
+                {
+                    correcto = false;
+                }
+            }
+            else
+            {
+                if (String.IsNullOrWhiteSpace(txtNombre.Text) ||
+                    String.IsNullOrWhiteSpace(txtUbicacion.Text))
+                {
+                    correcto = false;
+                }
+            }
+
+            return correcto;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (this.txtNombre.Text != "" && this.txtUbicacion.Text != "")
+            if (validar())
             {
-                Departamentos dep = new Departamentos();
-                dep.Nombre = txtNombre.Text;
-                dep.Responsable =Convert.ToInt32(comboEncargado.SelectedValue);
-                dep.Ubicacion = txtUbicacion.Text;
-                conexion.Departamentos.Add(dep);
-                conexion.SaveChanges();
-                cargarDepartamentos();
+                try
+                {
+                    Departamentos dep = new Departamentos();
+                    dep.Nombre = txtNombre.Text;
+                    dep.Responsable = Convert.ToInt32(comboEncargado.SelectedValue);
+                    dep.Ubicacion = txtUbicacion.Text;
+                    conexion.Departamentos.Add(dep);
+                    conexion.SaveChanges();
+                    cargarDepartamentos();
+                }
+                catch
+                {
+                    MessageBox.Show("campos con datos incorrectos.");
+                }
+            }
+            else {
+                MessageBox.Show("Hay campos vacios.");
             }
            
 
@@ -147,16 +187,29 @@ namespace ProyectoFinal
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (this.txtId.Text !="" && this.txtNombre.Text != "" && this.txtUbicacion.Text != "")
+            if (txtId.Text != "")
             {
-                int id = Convert.ToInt32(txtId.Text);
-                var dep = conexion.Departamentos.FirstOrDefault(r => r.Id == id);
-                dep.Nombre = txtNombre.Text;
-                dep.Responsable = Convert.ToInt32(comboEncargado.SelectedValue);
-                dep.Ubicacion = txtUbicacion.Text;
-                conexion.SaveChanges();
-                cargarDepartamentos();
-            }    
+                if (validar(Convert.ToInt32(txtId.Text)))
+                {
+                    try
+                    {
+                        int id = Convert.ToInt32(txtId.Text);
+                        var dep = conexion.Departamentos.FirstOrDefault(r => r.Id == id);
+                        dep.Nombre = txtNombre.Text;
+                        dep.Responsable = Convert.ToInt32(comboEncargado.SelectedValue);
+                        dep.Ubicacion = txtUbicacion.Text;
+                        conexion.SaveChanges();
+                        cargarDepartamentos();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("campos con datos incorrectos.");
+                    }
+                }
+            }
+            else {
+                MessageBox.Show("Hay campos vacios");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -168,10 +221,12 @@ namespace ProyectoFinal
                 int selectedIndex = seleccion[0].Index;
 
                 int rowID = int.Parse(dgvDepartamentos[0, selectedIndex].Value.ToString());
-                int empeladoid = int.Parse(dgvDepartamentos[3, selectedIndex].Value.ToString());
-
-
-                comboEncargado.SelectedValue = empeladoid;
+              
+                var idResponsable = conexion.Departamentos.FirstOrDefault(o=>o.Id == rowID).Responsable;
+                
+                if(idResponsable!=null){
+                    comboEncargado.SelectedValue = idResponsable;
+                }
                 Departamentos dep = conexion.Departamentos.FirstOrDefault(r => r.Id == rowID);
 
 
