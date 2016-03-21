@@ -36,8 +36,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdEmpleado" Type="int" Nullable="false" />
-    <Property Name="IdDeduccion" Type="int" Nullable="false" />
-    <Property Name="IdTrasaccion" Type="int" Nullable="false" />
+    <Property Name="IdTransaccion" Type="int" Nullable="false" />
+    <Property Name="TipoMovimiento" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Fecha" Type="datetime" />
     <Property Name="Monto" Type="float" Nullable="false" />
     <Property Name="Estado" Type="varchar" MaxLength="50" />
@@ -47,7 +47,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DependeSalario" Type="varchar" MaxLength="50" />
     <Property Name="Estado" Type="varchar" MaxLength="50" />
   </EntityType>

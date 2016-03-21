@@ -37,7 +37,6 @@ namespace ProyectoFinal
             txtPuesto.DataSource = puestosBinding;
             txtPuesto.DisplayMember = "Nombre";
             txtPuesto.ValueMember = "Id";
-
         }
 
         private void FrmPuestos_Load(object sender, EventArgs e)

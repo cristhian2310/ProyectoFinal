@@ -20,7 +20,9 @@ namespace ProyectoFinal
             //Application.Run(new FrmEmpleados());
             //Application.Run(new FrmPuestos());
             //Application.Run(new Login());
-            Application.Run(new FrmDepartamentos());
+            //Application.Run(new FrmDepartamentos());
+            Application.Run(new FrmDeducciones());
+        
         }
     }
 }

@@ -41,8 +41,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdEmpleado" Type="int" Nullable="false" />
-          <Property Name="IdDeduccion" Type="int" Nullable="false" />
-          <Property Name="IdTrasaccion" Type="int" Nullable="false" />
+          <Property Name="IdTransaccion" Type="int" Nullable="false" />
+          <Property Name="TipoMovimiento" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Fecha" Type="datetime" />
           <Property Name="Monto" Type="float" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" />
@@ -52,7 +52,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DependeSalario" Type="varchar" MaxLength="50" />
           <Property Name="Estado" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -162,61 +162,9 @@
           <Property Name="SalarioMinimo" Type="Double" />
           <NavigationProperty Name="Empleados" Relationship="ProyectoFinalModel.FK_Empleados_Puestos" FromRole="Puestos" ToRole="Empleados" />
         </EntityType>
-        <EntityType Name="RegistroTransacciones">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
-          <Property Name="IdDeduccion" Type="Int32" Nullable="false" />
-          <Property Name="IdTrasaccion" Type="Int32" Nullable="false" />
-          <Property Name="Fecha" Type="DateTime" Precision="3" />
-          <Property Name="Monto" Type="Double" Nullable="false" />
-          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TiposDeducciones" Relationship="Self.FK_RegistroTransacciones_TiposDeducciones" FromRole="RegistroTransacciones" ToRole="TiposDeducciones" />
-          <NavigationProperty Name="Empleados" Relationship="ProyectoFinalModel.FK_RegistroTransacciones_Empleados" FromRole="RegistroTransacciones" ToRole="Empleados" />
-        </EntityType>
-        <EntityType Name="TiposDeducciones">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="Int32" Nullable="false" />
-          <Property Name="DependeSalario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="RegistroTransacciones" Relationship="Self.FK_RegistroTransacciones_TiposDeducciones" FromRole="TiposDeducciones" ToRole="RegistroTransacciones" />
-        </EntityType>
-        <EntityType Name="TiposIngresos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DependeSalario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <Association Name="FK_RegistroTransacciones_TiposDeducciones">
-          <End Role="TiposDeducciones" Type="Self.TiposDeducciones" Multiplicity="1" />
-          <End Role="RegistroTransacciones" Type="Self.RegistroTransacciones" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TiposDeducciones">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="RegistroTransacciones">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ProyectoFinalEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" />
           <EntitySet Name="Puestos" EntityType="Self.Puestos" />
-          <EntitySet Name="RegistroTransacciones" EntityType="Self.RegistroTransacciones" />
-          <EntitySet Name="TiposDeducciones" EntityType="Self.TiposDeducciones" />
-          <EntitySet Name="TiposIngresos" EntityType="Self.TiposIngresos" />
-          <AssociationSet Name="FK_RegistroTransacciones_TiposDeducciones" Association="Self.FK_RegistroTransacciones_TiposDeducciones">
-            <End Role="TiposDeducciones" EntitySet="TiposDeducciones" />
-            <End Role="RegistroTransacciones" EntitySet="RegistroTransacciones" />
-          </AssociationSet>
           <EntitySet Name="Empleados" EntityType="ProyectoFinalModel.Empleados" />
           <AssociationSet Name="FK_Empleados_Departamentos" Association="ProyectoFinalModel.FK_Empleados_Departamentos">
             <End Role="Departamentos" EntitySet="Departamentos" />
@@ -226,8 +174,15 @@
             <End Role="Puestos" EntitySet="Puestos" />
             <End Role="Empleados" EntitySet="Empleados" />
           </AssociationSet>
+          <EntitySet Name="RegistroTransacciones" EntityType="ProyectoFinalModel.RegistroTransacciones" />
+          <EntitySet Name="TiposDeducciones" EntityType="ProyectoFinalModel.TiposDeducciones" />
+          <EntitySet Name="TiposIngresos" EntityType="ProyectoFinalModel.TiposIngresos" />
           <AssociationSet Name="FK_RegistroTransacciones_Empleados" Association="ProyectoFinalModel.FK_RegistroTransacciones_Empleados">
             <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="RegistroTransacciones" EntitySet="RegistroTransacciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistroTransacciones_TiposDeducciones" Association="ProyectoFinalModel.FK_RegistroTransacciones_TiposDeducciones">
+            <End Role="TiposDeducciones" EntitySet="TiposDeducciones" />
             <End Role="RegistroTransacciones" EntitySet="RegistroTransacciones" />
           </AssociationSet>
         </EntityContainer>
@@ -269,11 +224,56 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RegistroTransacciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="IdTransaccion" Type="Int32" Nullable="false" />
+          <Property Name="TipoMovimiento" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Monto" Type="Double" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleados" Relationship="ProyectoFinalModel.FK_RegistroTransacciones_Empleados" FromRole="RegistroTransacciones" ToRole="Empleados" />
+          <NavigationProperty Name="TiposDeducciones" Relationship="ProyectoFinalModel.FK_RegistroTransacciones_TiposDeducciones" FromRole="RegistroTransacciones" ToRole="TiposDeducciones" />
+        </EntityType>
+        <EntityType Name="TiposDeducciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DependeSalario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RegistroTransacciones" Relationship="ProyectoFinalModel.FK_RegistroTransacciones_TiposDeducciones" FromRole="TiposDeducciones" ToRole="RegistroTransacciones" />
+        </EntityType>
+        <EntityType Name="TiposIngresos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DependeSalario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <Association Name="FK_RegistroTransacciones_Empleados">
           <End Type="ProyectoFinalModel.Empleados" Role="Empleados" Multiplicity="1" />
           <End Type="ProyectoFinalModel.RegistroTransacciones" Role="RegistroTransacciones" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Empleados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistroTransacciones">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistroTransacciones_TiposDeducciones">
+          <End Type="ProyectoFinalModel.TiposDeducciones" Role="TiposDeducciones" Multiplicity="1" />
+          <End Type="ProyectoFinalModel.RegistroTransacciones" Role="RegistroTransacciones" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TiposDeducciones">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="RegistroTransacciones">
@@ -308,39 +308,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RegistroTransacciones">
-            <EntityTypeMapping TypeName="ProyectoFinalModel.RegistroTransacciones">
-              <MappingFragment StoreEntitySet="RegistroTransacciones">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
-                <ScalarProperty Name="IdDeduccion" ColumnName="IdDeduccion" />
-                <ScalarProperty Name="IdTrasaccion" ColumnName="IdTrasaccion" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TiposDeducciones">
-            <EntityTypeMapping TypeName="ProyectoFinalModel.TiposDeducciones">
-              <MappingFragment StoreEntitySet="TiposDeducciones">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="DependeSalario" ColumnName="DependeSalario" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TiposIngresos">
-            <EntityTypeMapping TypeName="ProyectoFinalModel.TiposIngresos">
-              <MappingFragment StoreEntitySet="TiposIngresos">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="DependeSalario" ColumnName="DependeSalario" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Empleados">
             <EntityTypeMapping TypeName="ProyectoFinalModel.Empleados">
               <MappingFragment StoreEntitySet="Empleados">
@@ -349,6 +316,39 @@
                 <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistroTransacciones">
+            <EntityTypeMapping TypeName="ProyectoFinalModel.RegistroTransacciones">
+              <MappingFragment StoreEntitySet="RegistroTransacciones">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
+                <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposDeducciones">
+            <EntityTypeMapping TypeName="ProyectoFinalModel.TiposDeducciones">
+              <MappingFragment StoreEntitySet="TiposDeducciones">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="DependeSalario" ColumnName="DependeSalario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposIngresos">
+            <EntityTypeMapping TypeName="ProyectoFinalModel.TiposIngresos">
+              <MappingFragment StoreEntitySet="TiposIngresos">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="DependeSalario" ColumnName="DependeSalario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

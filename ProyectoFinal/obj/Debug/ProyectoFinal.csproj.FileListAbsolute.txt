@@ -60,3 +60,4 @@ C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Lo
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.SistemaNomina.resources
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmDepartamentos.resources
 C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmEmpleados.resources
+C:\Users\crcu2914\Desktop\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmDeducciones.resources

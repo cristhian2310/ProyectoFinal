@@ -15,7 +15,7 @@ namespace ProyectoFinal
     public partial class TiposDeducciones
     {
         public int Id { get; set; }
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
         public string DependeSalario { get; set; }
         public string Estado { get; set; }
     
