@@ -279,11 +279,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.label6.Location = new System.Drawing.Point(117, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(200, 25);
+            this.label6.Size = new System.Drawing.Size(191, 24);
             this.label6.TabIndex = 18;
             this.label6.Text = "Gestión de Puestos";
             // 

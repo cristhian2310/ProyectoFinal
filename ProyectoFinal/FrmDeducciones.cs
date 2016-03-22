@@ -154,28 +154,25 @@ namespace ProyectoFinal
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            //{
-            //    var seleccion = dgvDeducciones.SelectedRows;
-            //    if (seleccion.Count > 0)
-            //    {
+            var seleccion = dgvDeducciones.SelectedRows;
+            if (seleccion.Count > 0)
+            {
 
-            //        int selectedIndex = seleccion[0].Index;
+                int selectedIndex = seleccion[0].Index;
 
-            //        int rowID = int.Parse(dgvDeducciones[0, selectedIndex].Value.ToString());
-                    
-            //        TiposDeducciones deduccion = _conexion.TiposDeducciones.FirstOrDefault(r => r.Id == rowID);
+                int rowID = int.Parse(dgvDeducciones[0, selectedIndex].Value.ToString());
 
-            //        txtDepende.SelectedVa= empleado.IdDepartamento;
+                TiposDeducciones deduccion = _conexion.TiposDeducciones.FirstOrDefault(r => r.Id == rowID);
 
-            //        txtPuesto.SelectedValue = empleado.IdPuesto;
+                txtDepende.Text = deduccion.DependeSalario;
 
-            //        txtId.Text = Convert.ToString(empleado.Id);
-            //        txtNombre.Text = empleado.Nombre;
-            //        txtCedula.Text = empleado.Cedula;
-            //        txtSalario.Text = Convert.ToString(empleado.SalarioMensual);
+                txtEstado.Text = deduccion.Estado;
 
-            //    }
-            //}
+                txtId.Text = Convert.ToString(deduccion.Id);
+                txtNombre.Text = deduccion.Nombre;
+                
+
+            }
         }
     }
 }
