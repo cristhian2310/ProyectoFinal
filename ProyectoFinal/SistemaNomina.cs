@@ -44,5 +44,27 @@ namespace ProyectoFinal
         {
 
         }
+
+        private void gestionDeIngresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIngresos o = new FrmIngresos();
+            o.Show();
+        }
+
+        private void gestionDeDeduccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDeducciones o = new FrmDeducciones();
+            o.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
