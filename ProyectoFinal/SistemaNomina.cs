@@ -12,9 +12,28 @@ namespace ProyectoFinal
 {
     public partial class SistemaNomina : Form
     {
+        private readonly ProyectoFinalEntities1 _conexion = new ProyectoFinalEntities1();
+
         public SistemaNomina()
         {
             InitializeComponent();
+            cargarCombos();
+        }
+
+        public void cargarCombos(){
+
+            var empleados = _conexion.Empleados.ToList();
+            var empleadosBinding = new BindingList<Empleados>(empleados);
+            cmbEmpleado.DataSource = empleadosBinding;
+            cmbEmpleado.DisplayMember = "Nombre";
+            cmbEmpleado.ValueMember = "Id";
+
+            
+            //cmbEstado.Chang
+            //cmbEmpleado.DataSource = empleadosBinding;
+            //cmbEmpleado.DisplayMember = "Nombre";
+            //cmbEmpleado.ValueMember = "Id";
+
         }
 
         private void esoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,6 +82,12 @@ namespace ProyectoFinal
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
 
         }

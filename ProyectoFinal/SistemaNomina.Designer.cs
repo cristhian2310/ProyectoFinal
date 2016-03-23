@@ -34,9 +34,9 @@
             this.esoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mismoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDePuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.gestionDeIngresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeDeduccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,21 +45,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
+            this.cmbTipoTransaccion = new System.Windows.Forms.ComboBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.cmbTransaccion = new System.Windows.Forms.ComboBox();
+            this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,9 +60,17 @@
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Transaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -98,33 +99,28 @@
             // esoToolStripMenuItem
             // 
             this.esoToolStripMenuItem.Name = "esoToolStripMenuItem";
-            this.esoToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.esoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.esoToolStripMenuItem.Text = "Gestión Departamentos";
             this.esoToolStripMenuItem.Click += new System.EventHandler(this.esoToolStripMenuItem_Click);
             // 
             // mismoToolStripMenuItem
             // 
             this.mismoToolStripMenuItem.Name = "mismoToolStripMenuItem";
-            this.mismoToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.mismoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.mismoToolStripMenuItem.Text = "Gestion Empleados";
             this.mismoToolStripMenuItem.Click += new System.EventHandler(this.mismoToolStripMenuItem_Click);
             // 
             // gestiónDePuestosToolStripMenuItem
             // 
             this.gestiónDePuestosToolStripMenuItem.Name = "gestiónDePuestosToolStripMenuItem";
-            this.gestiónDePuestosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.gestiónDePuestosToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.gestiónDePuestosToolStripMenuItem.Text = "Gestión de Puestos";
             this.gestiónDePuestosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDePuestosToolStripMenuItem_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // gestionDeIngresosToolStripMenuItem
             // 
             this.gestionDeIngresosToolStripMenuItem.Name = "gestionDeIngresosToolStripMenuItem";
-            this.gestionDeIngresosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.gestionDeIngresosToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.gestionDeIngresosToolStripMenuItem.Text = "Gestion de Ingresos";
             this.gestionDeIngresosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeIngresosToolStripMenuItem_Click);
             // 
@@ -134,6 +130,11 @@
             this.gestionDeDeduccionesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.gestionDeDeduccionesToolStripMenuItem.Text = "Gestion de Deducciones";
             this.gestionDeDeduccionesToolStripMenuItem.Click += new System.EventHandler(this.gestionDeDeduccionesToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // label1
             // 
@@ -166,7 +167,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(306, 152);
+            this.label4.Location = new System.Drawing.Point(293, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 4;
@@ -210,12 +211,12 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Registro de Transacciones";
             // 
-            // textBox1
+            // txtId
             // 
-            this.textBox1.Location = new System.Drawing.Point(134, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtId.Location = new System.Drawing.Point(134, 73);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(136, 20);
+            this.txtId.TabIndex = 9;
             // 
             // textBox2
             // 
@@ -224,44 +225,47 @@
             this.textBox2.Size = new System.Drawing.Size(136, 20);
             this.textBox2.TabIndex = 10;
             // 
-            // comboBox1
+            // cmbEmpleado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(134, 110);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 11;
+            this.cmbEmpleado.FormattingEnabled = true;
+            this.cmbEmpleado.Location = new System.Drawing.Point(134, 110);
+            this.cmbEmpleado.Name = "cmbEmpleado";
+            this.cmbEmpleado.Size = new System.Drawing.Size(121, 21);
+            this.cmbEmpleado.TabIndex = 11;
             // 
-            // comboBox2
+            // cmbTipoTransaccion
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(134, 147);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 12;
+            this.cmbTipoTransaccion.FormattingEnabled = true;
+            this.cmbTipoTransaccion.Items.AddRange(new object[] {
+            "Deduccion",
+            "Ingreso"});
+            this.cmbTipoTransaccion.Location = new System.Drawing.Point(134, 147);
+            this.cmbTipoTransaccion.Name = "cmbTipoTransaccion";
+            this.cmbTipoTransaccion.Size = new System.Drawing.Size(121, 21);
+            this.cmbTipoTransaccion.TabIndex = 12;
             // 
-            // comboBox3
+            // cmbEstado
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(134, 184);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 13;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(134, 184);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(121, 21);
+            this.cmbEstado.TabIndex = 13;
             // 
-            // comboBox4
+            // cmbTransaccion
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(378, 149);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 14;
+            this.cmbTransaccion.FormattingEnabled = true;
+            this.cmbTransaccion.Location = new System.Drawing.Point(378, 149);
+            this.cmbTransaccion.Name = "cmbTransaccion";
+            this.cmbTransaccion.Size = new System.Drawing.Size(121, 21);
+            this.cmbTransaccion.TabIndex = 14;
             // 
-            // dateTimePicker1
+            // txtFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(378, 70);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 15;
+            this.txtFecha.Location = new System.Drawing.Point(378, 70);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(200, 20);
+            this.txtFecha.TabIndex = 15;
             // 
             // dataGridView1
             // 
@@ -279,67 +283,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(742, 189);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(151, 232);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(230, 20);
-            this.textBox3.TabIndex = 17;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(603, 67);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Limpiar campos";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(603, 105);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(603, 142);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 23);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Actualizar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(603, 179);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(108, 23);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Borrar";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(12, 229);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(121, 23);
-            this.button5.TabIndex = 22;
-            this.button5.Text = "Buscar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(387, 229);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(241, 23);
-            this.button6.TabIndex = 23;
-            this.button6.Text = "Consultar selección";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // ID
             // 
@@ -383,38 +326,100 @@
             this.Transaccion.Name = "Transaccion";
             this.Transaccion.ReadOnly = true;
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(156, 179);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(230, 20);
+            this.txtBuscar.TabIndex = 17;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(603, 67);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(108, 23);
+            this.btnLimpiar.TabIndex = 18;
+            this.btnLimpiar.Text = "Limpiar campos";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(603, 142);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(108, 23);
+            this.btnActualizar.TabIndex = 20;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Location = new System.Drawing.Point(603, 179);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(108, 23);
+            this.btnBorrar.TabIndex = 21;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(24, 179);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(121, 23);
+            this.btnBuscar.TabIndex = 22;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(392, 179);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(241, 23);
+            this.btnConsultar.TabIndex = 23;
+            this.btnConsultar.Text = "Consultar selección";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnGuardar);
+            this.panel1.Controls.Add(this.btnBuscar);
+            this.panel1.Controls.Add(this.btnConsultar);
+            this.panel1.Controls.Add(this.txtBuscar);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(13, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(705, 258);
+            this.panel1.Size = new System.Drawing.Size(720, 211);
             this.panel1.TabIndex = 24;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(590, 54);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(108, 23);
+            this.btnGuardar.TabIndex = 24;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // SistemaNomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 470);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtFecha);
+            this.Controls.Add(this.cmbTransaccion);
+            this.Controls.Add(this.cmbEstado);
+            this.Controls.Add(this.cmbTipoTransaccion);
+            this.Controls.Add(this.cmbEmpleado);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -426,6 +431,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,21 +456,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cmbEmpleado;
+        private System.Windows.Forms.ComboBox cmbTipoTransaccion;
+        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.ComboBox cmbTransaccion;
+        private System.Windows.Forms.DateTimePicker txtFecha;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Empleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoTransaccion;
@@ -472,5 +478,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Transaccion;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }
