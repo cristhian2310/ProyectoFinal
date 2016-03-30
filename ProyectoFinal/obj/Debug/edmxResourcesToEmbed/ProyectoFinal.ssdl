@@ -86,25 +86,13 @@
   </Association>
   <Association Name="FK_RegistroTransacciones_Empleados">
     <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
-    <End Role="RegistroTransacciones" Type="Self.RegistroTransacciones" Multiplicity="0..1" />
+    <End Role="RegistroTransacciones" Type="Self.RegistroTransacciones" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Empleados">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="RegistroTransacciones">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RegistroTransacciones_TiposDeducciones">
-    <End Role="TiposDeducciones" Type="Self.TiposDeducciones" Multiplicity="1" />
-    <End Role="RegistroTransacciones" Type="Self.RegistroTransacciones" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="TiposDeducciones">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="RegistroTransacciones">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="IdEmpleado" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -125,10 +113,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_RegistroTransacciones_Empleados" Association="Self.FK_RegistroTransacciones_Empleados">
       <End Role="Empleados" EntitySet="Empleados" />
-      <End Role="RegistroTransacciones" EntitySet="RegistroTransacciones" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RegistroTransacciones_TiposDeducciones" Association="Self.FK_RegistroTransacciones_TiposDeducciones">
-      <End Role="TiposDeducciones" EntitySet="TiposDeducciones" />
       <End Role="RegistroTransacciones" EntitySet="RegistroTransacciones" />
     </AssociationSet>
   </EntityContainer>

@@ -36,6 +36,8 @@
             this.gestiónDePuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeIngresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeDeduccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.todasLasTransaccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,13 +48,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.cmbTipoTransaccion = new System.Windows.Forms.ComboBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.cmbTransaccion = new System.Windows.Forms.ComboBox();
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvRegristroTransaccion = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,16 +69,18 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCargar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegristroTransaccion)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
+            this.menuToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(763, 24);
@@ -130,6 +134,20 @@
             this.gestionDeDeduccionesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.gestionDeDeduccionesToolStripMenuItem.Text = "Gestion de Deducciones";
             this.gestionDeDeduccionesToolStripMenuItem.Click += new System.EventHandler(this.gestionDeDeduccionesToolStripMenuItem_Click);
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.todasLasTransaccionesToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // todasLasTransaccionesToolStripMenuItem
+            // 
+            this.todasLasTransaccionesToolStripMenuItem.Name = "todasLasTransaccionesToolStripMenuItem";
+            this.todasLasTransaccionesToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.todasLasTransaccionesToolStripMenuItem.Text = "Todas las transacciones";
             // 
             // contextMenuStrip1
             // 
@@ -218,12 +236,12 @@
             this.txtId.Size = new System.Drawing.Size(136, 20);
             this.txtId.TabIndex = 9;
             // 
-            // textBox2
+            // txtMonto
             // 
-            this.textBox2.Location = new System.Drawing.Point(378, 109);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(136, 20);
-            this.textBox2.TabIndex = 10;
+            this.txtMonto.Location = new System.Drawing.Point(378, 109);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(136, 20);
+            this.txtMonto.TabIndex = 10;
             // 
             // cmbEmpleado
             // 
@@ -243,10 +261,16 @@
             this.cmbTipoTransaccion.Name = "cmbTipoTransaccion";
             this.cmbTipoTransaccion.Size = new System.Drawing.Size(121, 21);
             this.cmbTipoTransaccion.TabIndex = 12;
+            this.cmbTipoTransaccion.SelectedIndexChanged += new System.EventHandler(this.cmbTipoTransaccion_SelectedIndexChanged);
             // 
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "",
+            "Completo",
+            "Incompleto",
+            "Transito "});
             this.cmbEstado.Location = new System.Drawing.Point(134, 184);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(121, 21);
@@ -267,10 +291,10 @@
             this.txtFecha.Size = new System.Drawing.Size(200, 20);
             this.txtFecha.TabIndex = 15;
             // 
-            // dataGridView1
+            // dgvRegristroTransaccion
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvRegristroTransaccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegristroTransaccion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Empleado,
             this.TipoTransaccion,
@@ -278,50 +302,57 @@
             this.Fecha,
             this.Monto,
             this.Transaccion});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 268);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(742, 189);
-            this.dataGridView1.TabIndex = 16;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvRegristroTransaccion.Location = new System.Drawing.Point(12, 268);
+            this.dgvRegristroTransaccion.Name = "dgvRegristroTransaccion";
+            this.dgvRegristroTransaccion.Size = new System.Drawing.Size(742, 189);
+            this.dgvRegristroTransaccion.TabIndex = 16;
+            this.dgvRegristroTransaccion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ID
             // 
+            this.ID.DataPropertyName = "Id";
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             // 
             // Empleado
             // 
+            this.Empleado.DataPropertyName = "Empleado";
             this.Empleado.HeaderText = "Empleado";
             this.Empleado.Name = "Empleado";
             this.Empleado.ReadOnly = true;
             // 
             // TipoTransaccion
             // 
+            this.TipoTransaccion.DataPropertyName = "TipoMovimiento";
             this.TipoTransaccion.HeaderText = "Tipo de transacción";
             this.TipoTransaccion.Name = "TipoTransaccion";
             this.TipoTransaccion.ReadOnly = true;
             // 
             // Estado
             // 
+            this.Estado.DataPropertyName = "Estado";
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
             // 
             // Fecha
             // 
+            this.Fecha.DataPropertyName = "Fecha";
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
             // 
             // Monto
             // 
-            this.Monto.HeaderText = "Column1";
+            this.Monto.DataPropertyName = "Monto";
+            this.Monto.HeaderText = "Monto";
             this.Monto.Name = "Monto";
             this.Monto.ReadOnly = true;
             // 
             // Transaccion
             // 
+            this.Transaccion.DataPropertyName = "Transaccion";
             this.Transaccion.HeaderText = "Transacción";
             this.Transaccion.Name = "Transaccion";
             this.Transaccion.ReadOnly = true;
@@ -341,6 +372,7 @@
             this.btnLimpiar.TabIndex = 18;
             this.btnLimpiar.Text = "Limpiar campos";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnActualizar
             // 
@@ -348,8 +380,9 @@
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(108, 23);
             this.btnActualizar.TabIndex = 20;
-            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.Text = "Modificar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnBorrar
             // 
@@ -359,6 +392,7 @@
             this.btnBorrar.TabIndex = 21;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnBuscar
             // 
@@ -368,18 +402,21 @@
             this.btnBuscar.TabIndex = 22;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnConsultar
             // 
             this.btnConsultar.Location = new System.Drawing.Point(392, 179);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(241, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(173, 23);
             this.btnConsultar.TabIndex = 23;
             this.btnConsultar.Text = "Consultar selección";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnCargar);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.btnConsultar);
@@ -389,6 +426,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(720, 211);
             this.panel1.TabIndex = 24;
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.Location = new System.Drawing.Point(590, 179);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(108, 23);
+            this.btnCargar.TabIndex = 25;
+            this.btnCargar.Text = "Actulizar";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // btnGuardar
             // 
@@ -408,13 +455,13 @@
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvRegristroTransaccion);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.cmbTransaccion);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.cmbTipoTransaccion);
             this.Controls.Add(this.cmbEmpleado);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -430,7 +477,7 @@
             this.Text = "Tipo de transacción";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegristroTransaccion)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -457,19 +504,21 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.ComboBox cmbTipoTransaccion;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.ComboBox cmbTransaccion;
         private System.Windows.Forms.DateTimePicker txtFecha;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvRegristroTransaccion;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Empleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoTransaccion;
@@ -477,7 +526,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Transaccion;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem todasLasTransaccionesToolStripMenuItem;
     }
 }

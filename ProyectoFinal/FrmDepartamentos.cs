@@ -37,7 +37,9 @@ namespace ProyectoFinal
                 DepartamentoViewModel e = new DepartamentoViewModel();
                 e.Id = emp.Id;
                 e.Nombre = emp.Nombre;
+                if (emp.Responsable != 0) { 
                 e.Responsable = conexion.Empleados.FirstOrDefault(l=>l.Id == emp.Responsable).Nombre;
+                }
                 e.Ubicacion = emp.Ubicacion;
 
                 departamentosViewModel.Add(e);
@@ -113,14 +115,24 @@ namespace ProyectoFinal
                 {
                     int selectedIndex = seleccion[0].Index;
 
+
+
                     int rowID = int.Parse(dgvDepartamentos[0, selectedIndex].Value.ToString());
 
-                    Departamentos dep = conexion.Departamentos.FirstOrDefault(r => r.Id == rowID);
+                    var existe = conexion.Empleados.FirstOrDefault(y => y.IdDepartamento == rowID);
 
-                    conexion.Departamentos.Remove(dep);
-                    conexion.SaveChanges();
-                    dgvDepartamentos.Rows.RemoveAt(seleccion[0].Index);
-                    cargarDepartamentos();
+                    if (existe == null)
+                    {
+
+                        Departamentos dep = conexion.Departamentos.FirstOrDefault(r => r.Id == rowID);
+                        conexion.Departamentos.Remove(dep);
+                        conexion.SaveChanges();
+                        dgvDepartamentos.Rows.RemoveAt(seleccion[0].Index);
+                        cargarDepartamentos();
+                    }
+                    else {
+                        MessageBox.Show("Este registro esta siendo utilizado por otra entidad");
+                    }
                 }
                 catch {
                     MessageBox.Show("Este departarmento no puede ser borrado ya que posee empleados.");
@@ -157,20 +169,18 @@ namespace ProyectoFinal
         {
             if (validar())
             {
-                try
-                {
                     Departamentos dep = new Departamentos();
                     dep.Nombre = txtNombre.Text;
-                    dep.Responsable = Convert.ToInt32(comboEncargado.SelectedValue);
+
+                    if (Convert.ToInt32(comboEncargado.SelectedValue) != null) {
+                        dep.Responsable = Convert.ToInt32(comboEncargado.SelectedValue);
+                    }
+                    
                     dep.Ubicacion = txtUbicacion.Text;
                     conexion.Departamentos.Add(dep);
                     conexion.SaveChanges();
                     cargarDepartamentos();
-                }
-                catch
-                {
-                    MessageBox.Show("campos con datos incorrectos.");
-                }
+
             }
             else {
                 MessageBox.Show("Hay campos vacios.");

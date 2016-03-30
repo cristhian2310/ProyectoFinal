@@ -18,7 +18,5 @@ namespace ProyectoFinal
         public string Nombre { get; set; }
         public string DependeSalario { get; set; }
         public string Estado { get; set; }
-    
-        public virtual RegistroTransacciones RegistroTransacciones { get; set; }
     }
 }

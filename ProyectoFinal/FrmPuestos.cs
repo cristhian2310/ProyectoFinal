@@ -18,33 +18,37 @@ namespace ProyectoFinal
             InitializeComponent();
             dgvPuestos.AutoGenerateColumns = false;
             dgvPuestos.AllowUserToAddRows = false;
-            
+
             cargarPuestos();
-            
+
         }
 
         private void FrmPuestos_Load(object sender, EventArgs e)
         {
 
         }
-        public void cargarPuestos(){
+        public void cargarPuestos()
+        {
 
             var p = conexion.Puestos.ToList();
             var puestosbing = new BindingList<Puestos>(p);
             dgvPuestos.DataSource = puestosbing;
         }
 
-        public bool validar(int id = 0) {
+        public bool validar(int id = 0)
+        {
 
             var correcto = true;
 
-            if (id != 0) {
-                if (txtNombre.Text == "" || txtNivelRiesgo.Text == "" || txtSalarioMax.Text == "" || txtSalarioMin.Text == "" || txtId.Text =="" )
+            if (id != 0)
+            {
+                if (txtNombre.Text == "" || txtNivelRiesgo.Text == "" || txtSalarioMax.Text == "" || txtSalarioMin.Text == "" || txtId.Text == "")
                 {
                     correcto = false;
                 }
             }
-            else { 
+            else
+            {
                 if (txtNombre.Text == "" || txtNivelRiesgo.Text == "" || txtSalarioMax.Text == "" || txtSalarioMin.Text == "")
                 {
                     correcto = false;
@@ -66,7 +70,8 @@ namespace ProyectoFinal
                 conexion.SaveChanges();
                 cargarPuestos();
             }
-            else {
+            else
+            {
                 MessageBox.Show("Hay campos vacios.");
             }
         }
@@ -89,13 +94,22 @@ namespace ProyectoFinal
 
                 int rowID = int.Parse(dgvPuestos[0, selectedIndex].Value.ToString());
 
-                Puestos dep = conexion.Puestos.FirstOrDefault(r => r.Id == rowID);
+                var existe = conexion.Empleados.FirstOrDefault(y => y.IdPuesto == rowID);
 
-                conexion.Puestos.Remove(dep);
-                conexion.SaveChanges();
-                dgvPuestos.Rows.RemoveAt(seleccion[0].Index);
-                cargarPuestos();
+                if (existe == null)
+                {
 
+                    Puestos dep = conexion.Puestos.FirstOrDefault(r => r.Id == rowID);
+
+                    conexion.Puestos.Remove(dep);
+                    conexion.SaveChanges();
+                    dgvPuestos.Rows.RemoveAt(seleccion[0].Index);
+                    cargarPuestos();
+                }
+                else
+                {
+                    MessageBox.Show("Este registro esta siendo utilizado por otra entidad");
+                }
             }
         }
 
@@ -120,7 +134,8 @@ namespace ProyectoFinal
                     MessageBox.Show("Hay campos vacios.");
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show("No ha seleccionado ninún puesto.");
             }
         }
@@ -135,17 +150,17 @@ namespace ProyectoFinal
 
                 int rowID = int.Parse(dgvPuestos[0, selectedIndex].Value.ToString());
                 int empeladoid = int.Parse(dgvPuestos[3, selectedIndex].Value.ToString());
-                
+
                 Puestos puesto = conexion.Puestos.FirstOrDefault(r => r.Id == rowID);
 
 
                 txtId.Text = Convert.ToString(puesto.Id);
                 txtNombre.Text = puesto.Nombre;
-                txtSalarioMax.Text =Convert.ToString(puesto.SalarioMaximo);
-                txtSalarioMin.Text =Convert.ToString(puesto.SalarioMinimo);
+                txtSalarioMax.Text = Convert.ToString(puesto.SalarioMaximo);
+                txtSalarioMin.Text = Convert.ToString(puesto.SalarioMinimo);
                 txtNivelRiesgo.Text = puesto.NivelRiesgo;
 
-                
+
 
             }
         }

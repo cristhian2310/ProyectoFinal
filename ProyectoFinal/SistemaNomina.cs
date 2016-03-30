@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinal.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,38 @@ namespace ProyectoFinal
         {
             InitializeComponent();
             cargarCombos();
+            cargarDGV();
+
+        }
+
+        public void cargarDGV() {
+
+            var registrosViewModel = new List<RegistroTransaccionViewModel>();
+            var r = _conexion.RegistroTransacciones.ToList();
+
+            foreach (var l in r) {
+                RegistroTransaccionViewModel e = new RegistroTransaccionViewModel();
+                e.Empleado = l.Empleados.Nombre;
+                e.Estado = l.Estado;
+                e.Fecha = l.Fecha;
+                e.Monto = l.Monto;
+                e.Id = l.Id;
+                e.TipoMovimiento = l.TipoMovimiento;
+                var tr="";
+                if(l.TipoMovimiento == "Deduccion")
+                {
+                     tr = _conexion.TiposDeducciones.FirstOrDefault(o => o.Id == l.IdTransaccion).Nombre;
+                
+                }
+                else{
+                     tr = _conexion.TiposIngresos.FirstOrDefault(o => o.Id == l.IdTransaccion).Nombre;
+                }
+                e.Transaccion = tr;
+                registrosViewModel.Add(e);
+            }
+
+
+            dgvRegristroTransaccion.DataSource = registrosViewModel;
         }
 
         public void cargarCombos(){
@@ -28,11 +61,6 @@ namespace ProyectoFinal
             cmbEmpleado.DisplayMember = "Nombre";
             cmbEmpleado.ValueMember = "Id";
 
-            
-            //cmbEstado.Chang
-            //cmbEmpleado.DataSource = empleadosBinding;
-            //cmbEmpleado.DisplayMember = "Nombre";
-            //cmbEmpleado.ValueMember = "Id";
 
         }
 
@@ -86,10 +114,170 @@ namespace ProyectoFinal
 
         }
 
+        public bool validar() {
+
+            bool correcto = true;
+        
+            if(
+                cmbEmpleado.Text =="" ||
+                cmbTipoTransaccion.Text == "" ||
+                cmbEstado.Text == "" ||
+                txtFecha.Value == null ||
+                txtMonto.Text == "" ||
+                cmbTransaccion.Text == ""
+                ){
+                    correcto = false;
+            }
+
+            return correcto;
+        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
+           
+            if (validar()) {
+
+                var registro = new RegistroTransacciones();
+
+                registro.IdEmpleado = Convert.ToInt32(cmbEmpleado.SelectedValue); 
+                registro.IdTransaccion = Convert.ToInt32(cmbTransaccion.SelectedValue);
+                registro.Estado = cmbEstado.Text;
+                registro.Fecha = txtFecha.Value;
+                registro.Monto = Convert.ToDouble(txtMonto.Text);
+                registro.TipoMovimiento = cmbTipoTransaccion.Text;
+                _conexion.RegistroTransacciones.Add(registro);
+                _conexion.SaveChanges();
+            }
+            cargarDGV();
+        }
+
+        private void cmbTipoTransaccion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTipoTransaccion.Text == "Deduccion") {
+                cmbTransaccion.DataSource = null;
+                var deducciones = _conexion.TiposDeducciones.ToList();
+                var deduccionesBinding = new BindingList<TiposDeducciones>(deducciones);
+                cmbTransaccion.DataSource = deduccionesBinding;
+                cmbTransaccion.DisplayMember = "Nombre";
+                cmbTransaccion.ValueMember = "Id";
+            }
+            else if (cmbTipoTransaccion.Text == "Ingreso")
+            {
+                cmbTransaccion.DataSource = null;
+                var ingresos = _conexion.TiposIngresos.ToList();
+                var ingresosBinding = new BindingList<TiposIngresos>(ingresos);
+                cmbTransaccion.DataSource = ingresosBinding;
+                cmbTransaccion.DisplayMember = "Nombre";
+                cmbTransaccion.ValueMember = "Id";
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cmbEmpleado.Text ="";
+            cmbTipoTransaccion.Text = "";
+            cmbEstado.Text ="";
+            txtId.Text = "";
+            txtMonto.Text = "";
+            cmbTransaccion.DataSource = null;
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            var seleccion = dgvRegristroTransaccion.SelectedRows;
+            if (seleccion.Count > 0)
+            {
+
+                int selectedIndex = seleccion[0].Index;
+
+                int rowID = int.Parse(dgvRegristroTransaccion[0, selectedIndex].Value.ToString());
+                
+                RegistroTransacciones registro = _conexion.RegistroTransacciones.FirstOrDefault(r => r.Id == rowID);
+                Empleados empleados = _conexion.Empleados.FirstOrDefault(r => r.Id == registro.IdEmpleado);
+
+                cmbEmpleado.Text = empleados.Nombre;
+                cmbTipoTransaccion.Text = registro.TipoMovimiento;
+                cmbEstado.Text = registro.Estado;
+                txtId.Text = Convert.ToString(registro.Id);
+                txtMonto.Text = Convert.ToString(registro.Monto);
+
+                var tr = "";
+                if (registro.TipoMovimiento == "Deduccion")
+                {
+                    tr = _conexion.TiposDeducciones.FirstOrDefault(o => o.Id == registro.IdTransaccion).Nombre;
+
+                }
+                else
+                {
+                    tr = _conexion.TiposIngresos.FirstOrDefault(o => o.Id == registro.IdTransaccion).Nombre;
+                }
+
+                cmbTransaccion.Text = tr;
+                txtFecha.Value = Convert.ToDateTime(registro.Fecha);
+
+            }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            var seleccion = dgvRegristroTransaccion.SelectedRows;
+            if (seleccion.Count > 0)
+            {
+                int selectedIndex = seleccion[0].Index;
+
+                int rowID = int.Parse(dgvRegristroTransaccion[0, selectedIndex].Value.ToString());
+
+                RegistroTransacciones dep = _conexion.RegistroTransacciones.FirstOrDefault(r => r.Id == rowID);
+
+                _conexion.RegistroTransacciones.Remove(dep);
+                _conexion.SaveChanges();
+                //dgvRegristroTransaccion.Rows.RemoveAt(seleccion[0].Index);
+                cargarDGV();
+
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "")
+            {
+                if (validar()) {
+                int id = Convert.ToInt32(txtId.Text);
+                RegistroTransacciones registro = _conexion.RegistroTransacciones.FirstOrDefault(o => o.Id ==id); ;
+
+                registro.IdEmpleado = Convert.ToInt32(cmbEmpleado.SelectedValue); 
+                registro.IdTransaccion = Convert.ToInt32(cmbTransaccion.SelectedValue);
+                registro.Estado = cmbEstado.Text;
+                registro.Fecha = txtFecha.Value;
+                registro.Monto = Convert.ToDouble(txtMonto.Text);
+                registro.TipoMovimiento = cmbTipoTransaccion.Text;
+                _conexion.SaveChanges();
+            }
+                else
+                {
+                    MessageBox.Show("Hay campos vacios.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No ha seleccionado ninún puesto.");
+            }
+
+            cargarDGV();
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            cargarCombos();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtBuscar.Text))
+            {
+                cargarDGV();
+            }
         }
     }
 }

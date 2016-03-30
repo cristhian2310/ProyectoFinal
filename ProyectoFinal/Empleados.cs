@@ -14,6 +14,11 @@ namespace ProyectoFinal
     
     public partial class Empleados
     {
+        public Empleados()
+        {
+            this.RegistroTransacciones = new HashSet<RegistroTransacciones>();
+        }
+    
         public int Id { get; set; }
         public string Cedula { get; set; }
         public string Nombre { get; set; }
@@ -23,6 +28,6 @@ namespace ProyectoFinal
     
         public virtual Departamentos Departamentos { get; set; }
         public virtual Puestos Puestos { get; set; }
-        public virtual RegistroTransacciones RegistroTransacciones { get; set; }
+        public virtual ICollection<RegistroTransacciones> RegistroTransacciones { get; set; }
     }
 }

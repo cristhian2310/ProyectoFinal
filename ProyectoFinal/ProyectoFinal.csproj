@@ -113,6 +113,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoFinal.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoFinalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoFinalDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Puestos.cs">
       <DependentUpon>ProyectoFinal.tt</DependentUpon>
     </Compile>
@@ -133,6 +138,7 @@
     </Compile>
     <Compile Include="ViewModels\DepartamentoViewModel.cs" />
     <Compile Include="ViewModels\EmpleadosViewModel.cs" />
+    <Compile Include="ViewModels\RegistroTransaccionViewModel.cs" />
     <EmbeddedResource Include="FrmIngresos.resx">
       <DependentUpon>FrmIngresos.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,12 +196,26 @@
       <DependentUpon>ProyectoFinal.edmx</DependentUpon>
       <LastGenOutput>ProyectoFinal.cs</LastGenOutput>
     </None>
+    <None Include="ProyectoFinalDataSet.xsc">
+      <DependentUpon>ProyectoFinalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoFinalDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoFinalDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoFinalDataSet.xss">
+      <DependentUpon>ProyectoFinalDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

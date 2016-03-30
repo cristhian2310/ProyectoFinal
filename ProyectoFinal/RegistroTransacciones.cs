@@ -23,6 +23,5 @@ namespace ProyectoFinal
         public string Estado { get; set; }
     
         public virtual Empleados Empleados { get; set; }
-        public virtual TiposDeducciones TiposDeducciones { get; set; }
     }
 }

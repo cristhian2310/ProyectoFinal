@@ -19,16 +19,17 @@ namespace ProyectoFinal
             InitializeComponent();
             cargarIngresos();
             dgvIngresos.AllowUserToAddRows = false;
-            
+
         }
 
-        public void cargarIngresos() {
+        public void cargarIngresos()
+        {
 
 
             var lista = _conexion.TiposIngresos.ToList();
             var listabing = new BindingList<TiposIngresos>(lista);
             dgvIngresos.DataSource = listabing;
-        
+
         }
 
 
@@ -42,7 +43,8 @@ namespace ProyectoFinal
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validar()) {
+            if (validar())
+            {
 
                 TiposIngresos ingreso = new TiposIngresos();
                 ingreso.Nombre = txtNombre.Text;
@@ -98,7 +100,7 @@ namespace ProyectoFinal
                 var resultados = _conexion.TiposIngresos.Where(y => y.Nombre.Contains(this.txtBuscar.Text)).ToList();
 
                 if (resultados != null)
-                {                   
+                {
                     var ingresos = new BindingList<TiposIngresos>(resultados);
                     dgvIngresos.DataSource = ingresos;
                 }
@@ -114,13 +116,22 @@ namespace ProyectoFinal
 
                 int rowID = int.Parse(dgvIngresos[0, selectedIndex].Value.ToString());
 
-                TiposIngresos dep = _conexion.TiposIngresos.FirstOrDefault(r => r.Id == rowID);
+                var existe = _conexion.RegistroTransacciones.FirstOrDefault(y => y.IdTransaccion == rowID && y.TipoMovimiento == "Ingreso");
 
-                _conexion.TiposIngresos.Remove(dep);
-                _conexion.SaveChanges();
-                dgvIngresos.Rows.RemoveAt(seleccion[0].Index);
-                cargarIngresos();
+                if (existe == null)
+                {
 
+                    TiposIngresos dep = _conexion.TiposIngresos.FirstOrDefault(r => r.Id == rowID);
+
+                    _conexion.TiposIngresos.Remove(dep);
+                    _conexion.SaveChanges();
+                    dgvIngresos.Rows.RemoveAt(seleccion[0].Index);
+                    cargarIngresos();
+                }
+                else
+                {
+                    MessageBox.Show("Este registro esta siendo utilizado por otra entidad");
+                }
             }
         }
 
@@ -170,7 +181,7 @@ namespace ProyectoFinal
 
                 txtId.Text = Convert.ToString(ingreso.Id);
                 txtNombre.Text = ingreso.Nombre;
-                
+
 
             }
         }

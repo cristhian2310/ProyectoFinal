@@ -19,16 +19,17 @@ namespace ProyectoFinal
             InitializeComponent();
             cargarDeducciones();
             dgvDeducciones.AllowUserToAddRows = false;
-            
+
         }
 
-        public void cargarDeducciones() {
+        public void cargarDeducciones()
+        {
 
 
             var lista = _conexion.TiposDeducciones.ToList();
             var listabing = new BindingList<TiposDeducciones>(lista);
             dgvDeducciones.DataSource = listabing;
-        
+
         }
 
 
@@ -42,8 +43,9 @@ namespace ProyectoFinal
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validar()) {
-                
+            if (validar())
+            {
+
                 TiposDeducciones deduccion = new TiposDeducciones();
                 deduccion.Nombre = txtNombre.Text;
                 deduccion.DependeSalario = txtDepende.Text;
@@ -98,7 +100,7 @@ namespace ProyectoFinal
                 var resultados = _conexion.TiposDeducciones.Where(y => y.Nombre.Contains(this.txtBuscar.Text)).ToList();
 
                 if (resultados != null)
-                {                   
+                {
                     var deducciones = new BindingList<TiposDeducciones>(resultados);
                     dgvDeducciones.DataSource = deducciones;
                 }
@@ -114,12 +116,22 @@ namespace ProyectoFinal
 
                 int rowID = int.Parse(dgvDeducciones[0, selectedIndex].Value.ToString());
 
-                TiposDeducciones dep = _conexion.TiposDeducciones.FirstOrDefault(r => r.Id == rowID);
+                var existe = _conexion.RegistroTransacciones.FirstOrDefault(y => y.IdTransaccion == rowID && y.TipoMovimiento=="Deduccion");
 
-                _conexion.TiposDeducciones.Remove(dep);
-                _conexion.SaveChanges();
-                dgvDeducciones.Rows.RemoveAt(seleccion[0].Index);
-                cargarDeducciones();
+                if (existe == null)
+                {
+
+                    TiposDeducciones dep = _conexion.TiposDeducciones.FirstOrDefault(r => r.Id == rowID);
+
+                    _conexion.TiposDeducciones.Remove(dep);
+                    _conexion.SaveChanges();
+                    dgvDeducciones.Rows.RemoveAt(seleccion[0].Index);
+                    cargarDeducciones();
+                }
+                else
+                {
+                    MessageBox.Show("Este registro esta siendo utilizado por otra entidad");
+                }
 
             }
         }
@@ -170,7 +182,7 @@ namespace ProyectoFinal
 
                 txtId.Text = Convert.ToString(deduccion.Id);
                 txtNombre.Text = deduccion.Nombre;
-                
+
 
             }
         }
