@@ -39,6 +39,8 @@ namespace ProyectoFinal
             txtNombre.Text = "";
             txtEstado.SelectedIndex = 0;
             txtDepende.SelectedIndex = 0;
+            txtTipo.SelectedIndex = 0;
+            txtMonto.Text = "";
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -50,6 +52,8 @@ namespace ProyectoFinal
                 ingreso.Nombre = txtNombre.Text;
                 ingreso.DependeSalario = txtDepende.Text;
                 ingreso.Estado = txtEstado.Text;
+                ingreso.Monto = Convert.ToDouble(txtMonto.Text);
+                ingreso.Tipo = txtTipo.Text;
 
                 _conexion.TiposIngresos.Add(ingreso);
                 _conexion.SaveChanges();
@@ -70,6 +74,8 @@ namespace ProyectoFinal
                 if (txtNombre.Text == "" ||
                     txtEstado.SelectedText == "" ||
                     txtDepende.SelectedText == "" ||
+                    txtTipo.Text == "" ||
+                    txtMonto.Text.Trim() == "" ||
                     txtId.Text == ""
                     )
                 {
@@ -80,6 +86,8 @@ namespace ProyectoFinal
             {
                 if (txtNombre.Text == "" ||
                     txtEstado.Text == "" ||
+                    txtTipo.Text == "" ||
+                    txtMonto.Text.Trim() == "" ||
                     txtDepende.Text == ""
                     )
                 {
@@ -148,6 +156,8 @@ namespace ProyectoFinal
                     ingresos.Nombre = txtNombre.Text;
                     ingresos.Estado = txtEstado.Text;
                     ingresos.DependeSalario = txtDepende.Text;
+                    ingresos.Monto = Convert.ToDouble(txtMonto.Text);
+                    ingresos.Tipo = txtTipo.Text;
 
                     _conexion.SaveChanges();
                     cargarIngresos();
@@ -178,6 +188,10 @@ namespace ProyectoFinal
                 txtDepende.Text = ingreso.DependeSalario;
 
                 txtEstado.Text = ingreso.Estado;
+
+                txtMonto.Text = Convert.ToString(ingreso.Monto);
+
+                txtTipo.Text = ingreso.Tipo;
 
                 txtId.Text = Convert.ToString(ingreso.Id);
                 txtNombre.Text = ingreso.Nombre;

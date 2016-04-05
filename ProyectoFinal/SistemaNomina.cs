@@ -279,5 +279,11 @@ namespace ProyectoFinal
                 cargarDGV();
             }
         }
+
+        private void calculoDeNominaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCalculo o = new FrmCalculo();
+            o.Show();
+        }
     }
 }

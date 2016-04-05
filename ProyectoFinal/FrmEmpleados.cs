@@ -114,8 +114,8 @@ namespace ProyectoFinal
                 var idPuesto = Convert.ToInt32(txtPuesto.SelectedValue);
                 var salario = conexion.Puestos.FirstOrDefault(u => u.Id ==idPuesto);
 
-                if (salario.SalarioMaximo <= Convert.ToDouble(txtSalario.Text) &&
-                    salario.SalarioMinimo >= Convert.ToDouble(txtSalario.Text))
+                if (salario.SalarioMaximo >= Convert.ToDouble(txtSalario.Text) &&
+                    salario.SalarioMinimo <= Convert.ToDouble(txtSalario.Text))
                 {
 
                     empleados.SalarioMensual = Convert.ToDouble(txtSalario.Text);

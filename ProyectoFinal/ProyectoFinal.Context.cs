@@ -28,8 +28,8 @@ namespace ProyectoFinal
         public virtual DbSet<Departamentos> Departamentos { get; set; }
         public virtual DbSet<Puestos> Puestos { get; set; }
         public virtual DbSet<Empleados> Empleados { get; set; }
+        public virtual DbSet<RegistroTransacciones> RegistroTransacciones { get; set; }
         public virtual DbSet<TiposDeducciones> TiposDeducciones { get; set; }
         public virtual DbSet<TiposIngresos> TiposIngresos { get; set; }
-        public virtual DbSet<RegistroTransacciones> RegistroTransacciones { get; set; }
     }
 }

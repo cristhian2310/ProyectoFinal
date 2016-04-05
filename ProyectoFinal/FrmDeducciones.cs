@@ -39,6 +39,7 @@ namespace ProyectoFinal
             txtNombre.Text = "";
             txtEstado.SelectedValue = 0;
             txtDepende.SelectedValue = 0;
+            txtTipo.SelectedValue = 0;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -47,9 +48,12 @@ namespace ProyectoFinal
             {
 
                 TiposDeducciones deduccion = new TiposDeducciones();
+
                 deduccion.Nombre = txtNombre.Text;
                 deduccion.DependeSalario = txtDepende.Text;
                 deduccion.Estado = txtEstado.Text;
+                deduccion.Monto = Convert.ToDouble(txtMonto.Text);
+                deduccion.Tipo = txtTipo.Text;
 
                 _conexion.TiposDeducciones.Add(deduccion);
                 _conexion.SaveChanges();
@@ -70,6 +74,8 @@ namespace ProyectoFinal
                 if (txtNombre.Text == "" ||
                     txtEstado.SelectedText == "" ||
                     txtDepende.SelectedText == "" ||
+                    txtTipo.Text == ""||
+                    txtMonto.Text.Trim() == ""||
                     txtId.Text == ""
                     )
                 {
@@ -80,7 +86,9 @@ namespace ProyectoFinal
             {
                 if (txtNombre.Text == "" ||
                     txtEstado.Text == "" ||
-                    txtDepende.Text == ""
+                    txtDepende.Text == ""||
+                    txtTipo.Text == ""||
+                    txtMonto.Text.Trim() == ""
                     )
                 {
                     correcto = false;
@@ -149,6 +157,8 @@ namespace ProyectoFinal
                     deducciones.Nombre = txtNombre.Text;
                     deducciones.Estado = txtEstado.Text;
                     deducciones.DependeSalario = txtDepende.Text;
+                    deducciones.Monto = Convert.ToDouble(txtMonto.Text);
+                    deducciones.Tipo = txtTipo.Text;
 
                     _conexion.SaveChanges();
                     cargarDeducciones();
@@ -179,6 +189,10 @@ namespace ProyectoFinal
                 txtDepende.Text = deduccion.DependeSalario;
 
                 txtEstado.Text = deduccion.Estado;
+
+                txtMonto.Text = Convert.ToString(deduccion.Monto);
+
+                txtTipo.Text = deduccion.Tipo;
 
                 txtId.Text = Convert.ToString(deduccion.Id);
                 txtNombre.Text = deduccion.Nombre;

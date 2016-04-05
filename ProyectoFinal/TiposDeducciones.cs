@@ -18,5 +18,7 @@ namespace ProyectoFinal
         public string Nombre { get; set; }
         public string DependeSalario { get; set; }
         public string Estado { get; set; }
+        public Nullable<double> Monto { get; set; }
+        public string Tipo { get; set; }
     }
 }

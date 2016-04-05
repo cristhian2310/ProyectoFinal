@@ -49,6 +49,10 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.txtDepende = new System.Windows.Forms.ComboBox();
             this.txtEstado = new System.Windows.Forms.ComboBox();
+            this.txtTipo = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngresos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,7 +155,7 @@
             this.Nombre,
             this.DependeSalario,
             this.Estado});
-            this.dgvIngresos.Location = new System.Drawing.Point(12, 226);
+            this.dgvIngresos.Location = new System.Drawing.Point(11, 281);
             this.dgvIngresos.Name = "dgvIngresos";
             this.dgvIngresos.Size = new System.Drawing.Size(420, 150);
             this.dgvIngresos.TabIndex = 15;
@@ -182,7 +186,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(12, 187);
+            this.btnBuscar.Location = new System.Drawing.Point(11, 242);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(95, 23);
             this.btnBuscar.TabIndex = 16;
@@ -192,14 +196,14 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(122, 189);
+            this.txtBuscar.Location = new System.Drawing.Point(121, 244);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(121, 20);
             this.txtBuscar.TabIndex = 17;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(249, 189);
+            this.btnConsultar.Location = new System.Drawing.Point(248, 244);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(181, 23);
             this.btnConsultar.TabIndex = 18;
@@ -241,11 +245,52 @@
             this.txtEstado.Size = new System.Drawing.Size(121, 21);
             this.txtEstado.TabIndex = 21;
             // 
+            // txtTipo
+            // 
+            this.txtTipo.FormattingEnabled = true;
+            this.txtTipo.Items.AddRange(new object[] {
+            "",
+            "Fijo",
+            "%"});
+            this.txtTipo.Location = new System.Drawing.Point(143, 173);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(121, 21);
+            this.txtTipo.TabIndex = 23;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 181);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Tipo";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 209);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Monto";
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.Location = new System.Drawing.Point(143, 206);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(134, 20);
+            this.txtMonto.TabIndex = 24;
+            // 
             // FrmIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 384);
+            this.ClientSize = new System.Drawing.Size(443, 452);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtMonto);
+            this.Controls.Add(this.txtTipo);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.txtDepende);
             this.Controls.Add(this.btnBorrar);
@@ -294,5 +339,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn DependeSalario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.ComboBox txtTipo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtMonto;
     }
 }

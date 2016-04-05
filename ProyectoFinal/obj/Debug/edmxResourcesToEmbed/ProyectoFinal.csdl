@@ -33,13 +33,13 @@
       <End Role="Puestos" EntitySet="Puestos" />
       <End Role="Empleados" EntitySet="Empleados" />
     </AssociationSet>
-    <EntitySet Name="TiposDeducciones" EntityType="ProyectoFinalModel.TiposDeducciones" />
-    <EntitySet Name="TiposIngresos" EntityType="ProyectoFinalModel.TiposIngresos" />
     <EntitySet Name="RegistroTransacciones" EntityType="ProyectoFinalModel.RegistroTransacciones" />
     <AssociationSet Name="FK_RegistroTransacciones_Empleados" Association="ProyectoFinalModel.FK_RegistroTransacciones_Empleados">
       <End Role="Empleados" EntitySet="Empleados" />
       <End Role="RegistroTransacciones" EntitySet="RegistroTransacciones" />
     </AssociationSet>
+    <EntitySet Name="TiposDeducciones" EntityType="ProyectoFinalModel.TiposDeducciones" />
+    <EntitySet Name="TiposIngresos" EntityType="ProyectoFinalModel.TiposIngresos" />
   </EntityContainer>
   <EntityType Name="Empleados">
     <Key>
@@ -79,24 +79,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="TiposDeducciones">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="DependeSalario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="TiposIngresos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="DependeSalario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="RegistroTransacciones">
     <Key>
       <PropertyRef Name="Id" />
@@ -122,4 +104,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="TiposDeducciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DependeSalario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Monto" Type="Double" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TiposIngresos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DependeSalario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Monto" Type="Double" />
+  </EntityType>
 </Schema>

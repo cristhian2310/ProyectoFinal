@@ -17,6 +17,8 @@ namespace ProyectoFinal
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SistemaNomina());
+            //Application.Run(new FrmCalculo());
+
             //Application.Run(new FrmEmpleados());
             //Application.Run(new FrmPuestos());
             //Application.Run(new Login());

@@ -39,16 +39,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvDeducciones = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DependeSalario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.txtDepende = new System.Windows.Forms.ComboBox();
             this.txtEstado = new System.Windows.Forms.ComboBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DependeSalario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtMonto = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTipo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeducciones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,14 +155,38 @@
             this.Nombre,
             this.DependeSalario,
             this.Estado});
-            this.dgvDeducciones.Location = new System.Drawing.Point(12, 226);
+            this.dgvDeducciones.Location = new System.Drawing.Point(4, 297);
             this.dgvDeducciones.Name = "dgvDeducciones";
             this.dgvDeducciones.Size = new System.Drawing.Size(420, 150);
             this.dgvDeducciones.TabIndex = 15;
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // DependeSalario
+            // 
+            this.DependeSalario.DataPropertyName = "DependeSalario";
+            this.DependeSalario.HeaderText = "Depende de Salario";
+            this.DependeSalario.Name = "DependeSalario";
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(12, 187);
+            this.btnBuscar.Location = new System.Drawing.Point(4, 258);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(95, 23);
             this.btnBuscar.TabIndex = 16;
@@ -168,14 +196,14 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(122, 189);
+            this.txtBuscar.Location = new System.Drawing.Point(114, 260);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(121, 20);
             this.txtBuscar.TabIndex = 17;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(249, 189);
+            this.btnConsultar.Location = new System.Drawing.Point(241, 260);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(181, 23);
             this.btnConsultar.TabIndex = 18;
@@ -217,35 +245,53 @@
             this.txtEstado.Size = new System.Drawing.Size(121, 21);
             this.txtEstado.TabIndex = 21;
             // 
-            // Id
+            // label6
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 216);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Monto";
             // 
-            // Nombre
+            // txtMonto
             // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
+            this.txtMonto.Location = new System.Drawing.Point(143, 216);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(134, 20);
+            this.txtMonto.TabIndex = 23;
+            this.txtMonto.Text = " ";
             // 
-            // DependeSalario
+            // label7
             // 
-            this.DependeSalario.DataPropertyName = "DependeSalario";
-            this.DependeSalario.HeaderText = "Depende de Salario";
-            this.DependeSalario.Name = "DependeSalario";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 183);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Tipo";
             // 
-            // Estado
+            // txtTipo
             // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
+            this.txtTipo.FormattingEnabled = true;
+            this.txtTipo.Items.AddRange(new object[] {
+            "",
+            "Fijo",
+            "%"});
+            this.txtTipo.Location = new System.Drawing.Point(143, 180);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(121, 21);
+            this.txtTipo.TabIndex = 25;
             // 
             // FrmDeducciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 384);
+            this.ClientSize = new System.Drawing.Size(436, 459);
+            this.Controls.Add(this.txtTipo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtMonto);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.txtDepende);
             this.Controls.Add(this.btnBorrar);
@@ -294,5 +340,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn DependeSalario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtMonto;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox txtTipo;
     }
 }

@@ -71,6 +71,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCargar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.calculoDeNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegristroTransaccion)).BeginInit();
             this.panel1.SuspendLayout();
@@ -138,7 +139,8 @@
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.todasLasTransaccionesToolStripMenuItem});
+            this.todasLasTransaccionesToolStripMenuItem,
+            this.calculoDeNominaToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -447,6 +449,13 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // calculoDeNominaToolStripMenuItem
+            // 
+            this.calculoDeNominaToolStripMenuItem.Name = "calculoDeNominaToolStripMenuItem";
+            this.calculoDeNominaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.calculoDeNominaToolStripMenuItem.Text = "Calculo de nomina";
+            this.calculoDeNominaToolStripMenuItem.Click += new System.EventHandler(this.calculoDeNominaToolStripMenuItem_Click);
+            // 
             // SistemaNomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,5 +538,6 @@
         private System.Windows.Forms.Button btnCargar;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todasLasTransaccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculoDeNominaToolStripMenuItem;
     }
 }

@@ -60,6 +60,12 @@
     <Compile Include="Empleados.cs">
       <DependentUpon>ProyectoFinal.tt</DependentUpon>
     </Compile>
+    <Compile Include="FrmCalculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCalculo.Designer.cs">
+      <DependentUpon>FrmCalculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIngresos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,9 +142,13 @@
     <Compile Include="TiposIngresos.cs">
       <DependentUpon>ProyectoFinal.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CalculoViewModel.cs" />
     <Compile Include="ViewModels\DepartamentoViewModel.cs" />
     <Compile Include="ViewModels\EmpleadosViewModel.cs" />
     <Compile Include="ViewModels\RegistroTransaccionViewModel.cs" />
+    <EmbeddedResource Include="FrmCalculo.resx">
+      <DependentUpon>FrmCalculo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresos.resx">
       <DependentUpon>FrmIngresos.cs</DependentUpon>
     </EmbeddedResource>

@@ -34,9 +34,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RegistroTransacciones">
+      <EntityTypeMapping TypeName="ProyectoFinalModel.RegistroTransacciones">
+        <MappingFragment StoreEntitySet="RegistroTransacciones">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
+          <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TiposDeducciones">
       <EntityTypeMapping TypeName="ProyectoFinalModel.TiposDeducciones">
         <MappingFragment StoreEntitySet="TiposDeducciones">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="DependeSalario" ColumnName="DependeSalario" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -47,22 +62,11 @@
     <EntitySetMapping Name="TiposIngresos">
       <EntityTypeMapping TypeName="ProyectoFinalModel.TiposIngresos">
         <MappingFragment StoreEntitySet="TiposIngresos">
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="DependeSalario" ColumnName="DependeSalario" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RegistroTransacciones">
-      <EntityTypeMapping TypeName="ProyectoFinalModel.RegistroTransacciones">
-        <MappingFragment StoreEntitySet="RegistroTransacciones">
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
-          <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
-          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
