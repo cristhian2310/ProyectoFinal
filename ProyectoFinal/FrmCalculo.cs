@@ -13,7 +13,7 @@ namespace ProyectoFinal
 {
     public partial class FrmCalculo : Form
     {
-        ProyectoFinalEntities1 _conexion = new ProyectoFinalEntities1();
+        ProyectoFinalEntities2 _conexion = new ProyectoFinalEntities2();
 
         public FrmCalculo()
         {
@@ -40,8 +40,30 @@ namespace ProyectoFinal
             List<CalculoViewModel> deducciones = new List<CalculoViewModel>();
             List<CalculoViewModel> ingresos = new List<CalculoViewModel>();
 
-            
+            var deduccionesMensuales = _conexion.TiposDeducciones.Where(p => p.DependeSalario == "Si");
 
+            if (deduccionesMensuales != null)
+            {
+                foreach (var mensual in deduccionesMensuales)
+                {
+                    var cal = new CalculoViewModel();
+                    cal.tipo = "Deduccion";
+                    cal.descripcion = mensual.Nombre;
+
+                    if (mensual.Tipo == "Fijo")
+                    {
+                        cal.monto = mensual.Monto;
+                    }
+                    else
+                    {
+                        var p = mensual.Monto / 100;
+                        cal.monto = p * empleado.SalarioMensual;
+                    }
+                    cal.fecha = DateTime.Today;
+
+                    deducciones.Add(cal);
+                }
+            }
             foreach (var trans in transacciones)
             {
                 var cal = new CalculoViewModel();
@@ -85,6 +107,71 @@ namespace ProyectoFinal
             }
             DgvCalculo.DataSource = deducciones.ToList();
 
+
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            ExportToExcel();
+        }
+        private void ExportToExcel()
+        {
+            // Creating a Excel object.
+            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            try
+            {
+
+                worksheet = workbook.ActiveSheet;
+
+                worksheet.Name = "ExportedFromDatGrid";
+
+                int cellRowIndex = 1;
+                int cellColumnIndex = 1;
+
+                //Loop through each row and read value from each column.
+                for (int i = 0; i < DgvCalculo.Rows.Count; i++)
+                {
+                    for (int j = 0; j < DgvCalculo.Columns.Count; j++)
+                    {
+                        // Excel index starts from 1,1. As first Row would have the Column headers, adding a condition check.
+                        if (cellRowIndex == 1)
+                        {
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = DgvCalculo.Columns[j].HeaderText;
+                        }
+                        else
+                        {
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = DgvCalculo.Rows[i].Cells[j].Value.ToString();
+                        }
+                        cellColumnIndex++;
+                    }
+                    cellColumnIndex = 1;
+                    cellRowIndex++;
+                }
+
+                //Getting the location and file name of the excel to save from user.
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveDialog.FilterIndex = 2;
+
+                if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    workbook.SaveAs(saveDialog.FileName);
+                    MessageBox.Show("Export Successful");
+                }
+            }
+            catch (System.Exception ex)
+            {
+               // MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                excel.Quit();
+                workbook = null;
+                excel = null;
+            }
 
         }
     }

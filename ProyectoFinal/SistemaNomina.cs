@@ -13,7 +13,7 @@ namespace ProyectoFinal
 {
     public partial class SistemaNomina : Form
     {
-        private readonly ProyectoFinalEntities1 _conexion = new ProyectoFinalEntities1();
+        private readonly ProyectoFinalEntities2 _conexion = new ProyectoFinalEntities2();
 
         public SistemaNomina()
         {
@@ -21,6 +21,14 @@ namespace ProyectoFinal
             cargarCombos();
             cargarDGV();
 
+            if (Seguridad.Rol != "Admin")
+            {
+                tsmDepartamento.Visible = false;
+                tsmDeducciones.Visible = false;
+                tsmEmpleados.Visible = false;
+                tsmIngresos.Visible = false;
+                tsmPuestos.Visible = false;
+            }
         }
 
         public void cargarDGV() {
@@ -33,7 +41,6 @@ namespace ProyectoFinal
                 e.Empleado = l.Empleados.Nombre;
                 e.Estado = l.Estado;
                 e.Fecha = l.Fecha;
-                e.Monto = l.Monto;
                 e.Id = l.Id;
                 e.TipoMovimiento = l.TipoMovimiento;
                 var tr="";
@@ -123,7 +130,6 @@ namespace ProyectoFinal
                 cmbTipoTransaccion.Text == "" ||
                 cmbEstado.Text == "" ||
                 txtFecha.Value == null ||
-                txtMonto.Text == "" ||
                 cmbTransaccion.Text == ""
                 ){
                     correcto = false;
@@ -144,7 +150,6 @@ namespace ProyectoFinal
                 registro.IdTransaccion = Convert.ToInt32(cmbTransaccion.SelectedValue);
                 registro.Estado = cmbEstado.Text;
                 registro.Fecha = txtFecha.Value;
-                registro.Monto = Convert.ToDouble(txtMonto.Text);
                 registro.TipoMovimiento = cmbTipoTransaccion.Text;
                 _conexion.RegistroTransacciones.Add(registro);
                 _conexion.SaveChanges();
@@ -179,7 +184,6 @@ namespace ProyectoFinal
             cmbTipoTransaccion.Text = "";
             cmbEstado.Text ="";
             txtId.Text = "";
-            txtMonto.Text = "";
             cmbTransaccion.DataSource = null;
         }
 
@@ -200,7 +204,6 @@ namespace ProyectoFinal
                 cmbTipoTransaccion.Text = registro.TipoMovimiento;
                 cmbEstado.Text = registro.Estado;
                 txtId.Text = Convert.ToString(registro.Id);
-                txtMonto.Text = Convert.ToString(registro.Monto);
 
                 var tr = "";
                 if (registro.TipoMovimiento == "Deduccion")
@@ -250,7 +253,6 @@ namespace ProyectoFinal
                 registro.IdTransaccion = Convert.ToInt32(cmbTransaccion.SelectedValue);
                 registro.Estado = cmbEstado.Text;
                 registro.Fecha = txtFecha.Value;
-                registro.Monto = Convert.ToDouble(txtMonto.Text);
                 registro.TipoMovimiento = cmbTipoTransaccion.Text;
                 _conexion.SaveChanges();
             }

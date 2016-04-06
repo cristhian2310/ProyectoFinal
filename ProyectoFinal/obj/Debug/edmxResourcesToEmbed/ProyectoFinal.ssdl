@@ -39,7 +39,6 @@
     <Property Name="IdTransaccion" Type="int" Nullable="false" />
     <Property Name="TipoMovimiento" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Fecha" Type="datetime" />
-    <Property Name="Monto" Type="float" Nullable="false" />
     <Property Name="Estado" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="TiposDeducciones">
@@ -63,6 +62,16 @@
     <Property Name="Estado" Type="varchar" MaxLength="50" />
     <Property Name="Tipo" Type="varchar" MaxLength="50" />
     <Property Name="Monto" Type="float" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Clave" Type="varchar" MaxLength="50" />
+    <Property Name="Rol" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Empleados_Departamentos">
     <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
@@ -107,6 +116,7 @@
     <EntitySet Name="RegistroTransacciones" EntityType="Self.RegistroTransacciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TiposDeducciones" EntityType="Self.TiposDeducciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TiposIngresos" EntityType="Self.TiposIngresos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Empleados_Departamentos" Association="Self.FK_Empleados_Departamentos">
       <End Role="Departamentos" EntitySet="Departamentos" />
       <End Role="Empleados" EntitySet="Empleados" />

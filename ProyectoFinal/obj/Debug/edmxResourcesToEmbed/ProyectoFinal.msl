@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ProyectoFinalModelStoreContainer" CdmEntityContainer="ProyectoFinalEntities1">
+  <EntityContainerMapping StorageEntityContainer="ProyectoFinalModelStoreContainer" CdmEntityContainer="ProyectoFinalEntities2">
     <EntitySetMapping Name="Departamentos">
       <EntityTypeMapping TypeName="ProyectoFinalModel.Departamentos">
         <MappingFragment StoreEntitySet="Departamentos">
@@ -8,6 +8,18 @@
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
           <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="ProyectoFinalModel.Empleados">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="IdPuesto" ColumnName="IdPuesto" />
+          <ScalarProperty Name="SalarioMensual" ColumnName="SalarioMensual" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -22,50 +34,48 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Empleados">
-      <EntityTypeMapping TypeName="ProyectoFinalModel.Empleados">
-        <MappingFragment StoreEntitySet="Empleados">
-          <ScalarProperty Name="SalarioMensual" ColumnName="SalarioMensual" />
-          <ScalarProperty Name="IdPuesto" ColumnName="IdPuesto" />
-          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RegistroTransacciones">
       <EntityTypeMapping TypeName="ProyectoFinalModel.RegistroTransacciones">
         <MappingFragment StoreEntitySet="RegistroTransacciones">
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
-          <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
-          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
+          <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TiposDeducciones">
       <EntityTypeMapping TypeName="ProyectoFinalModel.TiposDeducciones">
         <MappingFragment StoreEntitySet="TiposDeducciones">
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="DependeSalario" ColumnName="DependeSalario" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DependeSalario" ColumnName="DependeSalario" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TiposIngresos">
       <EntityTypeMapping TypeName="ProyectoFinalModel.TiposIngresos">
         <MappingFragment StoreEntitySet="TiposIngresos">
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="DependeSalario" ColumnName="DependeSalario" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="ProyectoFinalModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

@@ -38,6 +38,12 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Access, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -142,10 +148,14 @@
     <Compile Include="TiposIngresos.cs">
       <DependentUpon>ProyectoFinal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios.cs">
+      <DependentUpon>ProyectoFinal.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CalculoViewModel.cs" />
     <Compile Include="ViewModels\DepartamentoViewModel.cs" />
     <Compile Include="ViewModels\EmpleadosViewModel.cs" />
     <Compile Include="ViewModels\RegistroTransaccionViewModel.cs" />
+    <Compile Include="ViewModels\Seguridad.cs" />
     <EmbeddedResource Include="FrmCalculo.resx">
       <DependentUpon>FrmCalculo.cs</DependentUpon>
     </EmbeddedResource>

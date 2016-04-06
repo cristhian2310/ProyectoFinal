@@ -4,17 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="609a6ef756144646bba0254006ae2821" Name="Diagram1" ZoomLevel="84">
-        <EntityTypeShape EntityType="ProyectoFinalModel.Departamentos" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProyectoFinalModel.Puestos" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProyectoFinalModel.Empleados" Width="1.5" PointX="8" PointY="3.625" />
-        <AssociationConnector Association="ProyectoFinalModel.FK_Empleados_Departamentos" />
-        <AssociationConnector Association="ProyectoFinalModel.FK_Empleados_Puestos" />
-        <EntityTypeShape EntityType="ProyectoFinalModel.RegistroTransacciones" Width="1.5" PointX="10.25" PointY="3.75" />
-        <AssociationConnector Association="ProyectoFinalModel.FK_RegistroTransacciones_Empleados" />
-        <EntityTypeShape EntityType="ProyectoFinalModel.TiposDeducciones" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="ProyectoFinalModel.TiposIngresos" Width="1.5" PointX="3.375" PointY="0.75" />
-        </Diagram>
+      <Diagram DiagramId="aae9af4071d94e229e963f286af85e98" Name="Diagram1">
+        <EntityTypeShape EntityType="ProyectoFinalModel.Departamentos" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.Empleados" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.Puestos" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.RegistroTransacciones" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.TiposDeducciones" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.TiposIngresos" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoFinalModel.FK_Empleados_Departamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalModel.FK_Empleados_Puestos" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalModel.FK_RegistroTransacciones_Empleados" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProyectoFinalModel.Usuarios" Width="1.5" PointX="7.375" PointY="0.75" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

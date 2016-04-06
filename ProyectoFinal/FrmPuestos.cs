@@ -12,7 +12,7 @@ namespace ProyectoFinal
 {
     public partial class FrmPuestos : Form
     {
-        ProyectoFinalEntities1 conexion = new ProyectoFinalEntities1();
+        ProyectoFinalEntities2 conexion = new ProyectoFinalEntities2();
         public FrmPuestos()
         {
             InitializeComponent();

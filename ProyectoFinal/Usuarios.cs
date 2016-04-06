@@ -12,15 +12,12 @@ namespace ProyectoFinal
     using System;
     using System.Collections.Generic;
     
-    public partial class RegistroTransacciones
+    public partial class Usuarios
     {
         public int Id { get; set; }
-        public int IdEmpleado { get; set; }
-        public int IdTransaccion { get; set; }
-        public string TipoMovimiento { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
-        public string Estado { get; set; }
-    
-        public virtual Empleados Empleados { get; set; }
+        public string Nombre { get; set; }
+        public string Usuario { get; set; }
+        public string Clave { get; set; }
+        public string Rol { get; set; }
     }
 }

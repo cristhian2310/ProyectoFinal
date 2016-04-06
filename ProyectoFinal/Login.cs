@@ -7,15 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ProyectoFinal.ViewModels;
 namespace ProyectoFinal
 {
     public partial class Login : Form
     {
+        ProyectoFinalEntities2 _conexion = new ProyectoFinalEntities2();
         public Login()
         {
             InitializeComponent();
             lblError.Hide();
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -25,8 +27,11 @@ namespace ProyectoFinal
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtPass.Text == "123" && txtUsuario.Text == "admin")
+            var usuario = _conexion.Usuarios.FirstOrDefault(o => o.Usuario == txtUsuario.Text &&
+                o.Clave == txtPass.Text);
+            if (usuario !=null)
             {
+                Seguridad.Rol = usuario.Rol;
                 new SistemaNomina().Show();
                 this.Hide();
             }

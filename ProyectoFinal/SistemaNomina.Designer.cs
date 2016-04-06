@@ -31,24 +31,23 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.esoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mismoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDePuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDeIngresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDeDeduccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDepartamento = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEmpleados = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPuestos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmIngresos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDeducciones = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todasLasTransaccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculoDeNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.txtMonto = new System.Windows.Forms.TextBox();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.cmbTipoTransaccion = new System.Windows.Forms.ComboBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
@@ -60,7 +59,6 @@
             this.TipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Transaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -71,7 +69,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCargar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.calculoDeNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegristroTransaccion)).BeginInit();
             this.panel1.SuspendLayout();
@@ -84,57 +81,57 @@
             this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(763, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(756, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.esoToolStripMenuItem,
-            this.mismoToolStripMenuItem,
-            this.gestiónDePuestosToolStripMenuItem,
-            this.gestionDeIngresosToolStripMenuItem,
-            this.gestionDeDeduccionesToolStripMenuItem});
+            this.tsmDepartamento,
+            this.tsmEmpleados,
+            this.tsmPuestos,
+            this.tsmIngresos,
+            this.tsmDeducciones});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
             // 
-            // esoToolStripMenuItem
+            // tsmDepartamento
             // 
-            this.esoToolStripMenuItem.Name = "esoToolStripMenuItem";
-            this.esoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.esoToolStripMenuItem.Text = "Gestión Departamentos";
-            this.esoToolStripMenuItem.Click += new System.EventHandler(this.esoToolStripMenuItem_Click);
+            this.tsmDepartamento.Name = "tsmDepartamento";
+            this.tsmDepartamento.Size = new System.Drawing.Size(201, 22);
+            this.tsmDepartamento.Text = "Gestión Departamentos";
+            this.tsmDepartamento.Click += new System.EventHandler(this.esoToolStripMenuItem_Click);
             // 
-            // mismoToolStripMenuItem
+            // tsmEmpleados
             // 
-            this.mismoToolStripMenuItem.Name = "mismoToolStripMenuItem";
-            this.mismoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.mismoToolStripMenuItem.Text = "Gestion Empleados";
-            this.mismoToolStripMenuItem.Click += new System.EventHandler(this.mismoToolStripMenuItem_Click);
+            this.tsmEmpleados.Name = "tsmEmpleados";
+            this.tsmEmpleados.Size = new System.Drawing.Size(201, 22);
+            this.tsmEmpleados.Text = "Gestion Empleados";
+            this.tsmEmpleados.Click += new System.EventHandler(this.mismoToolStripMenuItem_Click);
             // 
-            // gestiónDePuestosToolStripMenuItem
+            // tsmPuestos
             // 
-            this.gestiónDePuestosToolStripMenuItem.Name = "gestiónDePuestosToolStripMenuItem";
-            this.gestiónDePuestosToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.gestiónDePuestosToolStripMenuItem.Text = "Gestión de Puestos";
-            this.gestiónDePuestosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDePuestosToolStripMenuItem_Click);
+            this.tsmPuestos.Name = "tsmPuestos";
+            this.tsmPuestos.Size = new System.Drawing.Size(201, 22);
+            this.tsmPuestos.Text = "Gestión de Puestos";
+            this.tsmPuestos.Click += new System.EventHandler(this.gestiónDePuestosToolStripMenuItem_Click);
             // 
-            // gestionDeIngresosToolStripMenuItem
+            // tsmIngresos
             // 
-            this.gestionDeIngresosToolStripMenuItem.Name = "gestionDeIngresosToolStripMenuItem";
-            this.gestionDeIngresosToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.gestionDeIngresosToolStripMenuItem.Text = "Gestion de Ingresos";
-            this.gestionDeIngresosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeIngresosToolStripMenuItem_Click);
+            this.tsmIngresos.Name = "tsmIngresos";
+            this.tsmIngresos.Size = new System.Drawing.Size(201, 22);
+            this.tsmIngresos.Text = "Gestion de Ingresos";
+            this.tsmIngresos.Click += new System.EventHandler(this.gestionDeIngresosToolStripMenuItem_Click);
             // 
-            // gestionDeDeduccionesToolStripMenuItem
+            // tsmDeducciones
             // 
-            this.gestionDeDeduccionesToolStripMenuItem.Name = "gestionDeDeduccionesToolStripMenuItem";
-            this.gestionDeDeduccionesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.gestionDeDeduccionesToolStripMenuItem.Text = "Gestion de Deducciones";
-            this.gestionDeDeduccionesToolStripMenuItem.Click += new System.EventHandler(this.gestionDeDeduccionesToolStripMenuItem_Click);
+            this.tsmDeducciones.Name = "tsmDeducciones";
+            this.tsmDeducciones.Size = new System.Drawing.Size(201, 22);
+            this.tsmDeducciones.Text = "Gestion de Deducciones";
+            this.tsmDeducciones.Click += new System.EventHandler(this.gestionDeDeduccionesToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -150,6 +147,13 @@
             this.todasLasTransaccionesToolStripMenuItem.Name = "todasLasTransaccionesToolStripMenuItem";
             this.todasLasTransaccionesToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.todasLasTransaccionesToolStripMenuItem.Text = "Todas las transacciones";
+            // 
+            // calculoDeNominaToolStripMenuItem
+            // 
+            this.calculoDeNominaToolStripMenuItem.Name = "calculoDeNominaToolStripMenuItem";
+            this.calculoDeNominaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.calculoDeNominaToolStripMenuItem.Text = "Calculo de nomina";
+            this.calculoDeNominaToolStripMenuItem.Click += new System.EventHandler(this.calculoDeNominaToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -202,19 +206,10 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Fecha";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(306, 115);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Monto";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 189);
+            this.label7.Location = new System.Drawing.Point(292, 61);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 7;
@@ -233,17 +228,11 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(134, 73);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(136, 20);
             this.txtId.TabIndex = 9;
-            // 
-            // txtMonto
-            // 
-            this.txtMonto.Location = new System.Drawing.Point(378, 109);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(136, 20);
-            this.txtMonto.TabIndex = 10;
             // 
             // cmbEmpleado
             // 
@@ -273,7 +262,7 @@
             "Completo",
             "Incompleto",
             "Transito "});
-            this.cmbEstado.Location = new System.Drawing.Point(134, 184);
+            this.cmbEstado.Location = new System.Drawing.Point(365, 56);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(121, 21);
             this.cmbEstado.TabIndex = 13;
@@ -302,11 +291,10 @@
             this.TipoTransaccion,
             this.Estado,
             this.Fecha,
-            this.Monto,
             this.Transaccion});
-            this.dgvRegristroTransaccion.Location = new System.Drawing.Point(12, 268);
+            this.dgvRegristroTransaccion.Location = new System.Drawing.Point(67, 251);
             this.dgvRegristroTransaccion.Name = "dgvRegristroTransaccion";
-            this.dgvRegristroTransaccion.Size = new System.Drawing.Size(742, 189);
+            this.dgvRegristroTransaccion.Size = new System.Drawing.Size(644, 196);
             this.dgvRegristroTransaccion.TabIndex = 16;
             this.dgvRegristroTransaccion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -345,13 +333,6 @@
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
             // 
-            // Monto
-            // 
-            this.Monto.DataPropertyName = "Monto";
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
-            // 
             // Transaccion
             // 
             this.Transaccion.DataPropertyName = "Transaccion";
@@ -361,9 +342,9 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(156, 179);
+            this.txtBuscar.Location = new System.Drawing.Point(151, 162);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(230, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(235, 20);
             this.txtBuscar.TabIndex = 17;
             // 
             // btnLimpiar
@@ -398,9 +379,9 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(24, 179);
+            this.btnBuscar.Location = new System.Drawing.Point(19, 162);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(121, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(126, 23);
             this.btnBuscar.TabIndex = 22;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -408,9 +389,9 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(392, 179);
+            this.btnConsultar.Location = new System.Drawing.Point(387, 162);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(173, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(178, 23);
             this.btnConsultar.TabIndex = 23;
             this.btnConsultar.Text = "Consultar selección";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -424,14 +405,16 @@
             this.panel1.Controls.Add(this.btnConsultar);
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.cmbEstado);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(13, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(720, 211);
+            this.panel1.Size = new System.Drawing.Size(720, 194);
             this.panel1.TabIndex = 24;
             // 
             // btnCargar
             // 
-            this.btnCargar.Location = new System.Drawing.Point(590, 179);
+            this.btnCargar.Location = new System.Drawing.Point(590, 162);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(108, 23);
             this.btnCargar.TabIndex = 25;
@@ -449,32 +432,21 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // calculoDeNominaToolStripMenuItem
-            // 
-            this.calculoDeNominaToolStripMenuItem.Name = "calculoDeNominaToolStripMenuItem";
-            this.calculoDeNominaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.calculoDeNominaToolStripMenuItem.Text = "Calculo de nomina";
-            this.calculoDeNominaToolStripMenuItem.Click += new System.EventHandler(this.calculoDeNominaToolStripMenuItem_Click);
-            // 
             // SistemaNomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 470);
+            this.ClientSize = new System.Drawing.Size(756, 450);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.dgvRegristroTransaccion);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.cmbTransaccion);
-            this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.cmbTipoTransaccion);
             this.Controls.Add(this.cmbEmpleado);
-            this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -499,21 +471,19 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem esoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mismoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestiónDePuestosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionDeIngresosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionDeDeduccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmDepartamento;
+        private System.Windows.Forms.ToolStripMenuItem tsmEmpleados;
+        private System.Windows.Forms.ToolStripMenuItem tsmPuestos;
+        private System.Windows.Forms.ToolStripMenuItem tsmIngresos;
+        private System.Windows.Forms.ToolStripMenuItem tsmDeducciones;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.ComboBox cmbTipoTransaccion;
         private System.Windows.Forms.ComboBox cmbEstado;
@@ -528,16 +498,15 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem todasLasTransaccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculoDeNominaToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Empleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoTransaccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Transaccion;
-        private System.Windows.Forms.Button btnCargar;
-        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem todasLasTransaccionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem calculoDeNominaToolStripMenuItem;
     }
 }

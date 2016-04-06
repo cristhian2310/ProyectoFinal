@@ -37,6 +37,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPuesto = new System.Windows.Forms.ComboBox();
+            this.txtDepartameto = new System.Windows.Forms.ComboBox();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnBorrar = new System.Windows.Forms.Button();
@@ -47,16 +49,14 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SalarioMensual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDepartameto = new System.Windows.Forms.ComboBox();
-            this.txtPuesto = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -149,9 +149,25 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(642, 154);
+            this.panel1.Size = new System.Drawing.Size(642, 151);
             this.panel1.TabIndex = 10;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // txtPuesto
+            // 
+            this.txtPuesto.FormattingEnabled = true;
+            this.txtPuesto.Location = new System.Drawing.Point(413, 38);
+            this.txtPuesto.Name = "txtPuesto";
+            this.txtPuesto.Size = new System.Drawing.Size(121, 21);
+            this.txtPuesto.TabIndex = 17;
+            // 
+            // txtDepartameto
+            // 
+            this.txtDepartameto.FormattingEnabled = true;
+            this.txtDepartameto.Location = new System.Drawing.Point(413, 11);
+            this.txtDepartameto.Name = "txtDepartameto";
+            this.txtDepartameto.Size = new System.Drawing.Size(121, 21);
+            this.txtDepartameto.TabIndex = 16;
             // 
             // txtSalario
             // 
@@ -211,7 +227,7 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(12, 214);
+            this.btnFiltrar.Location = new System.Drawing.Point(62, 199);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(91, 23);
             this.btnFiltrar.TabIndex = 14;
@@ -221,14 +237,14 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(109, 217);
+            this.txtBuscar.Location = new System.Drawing.Point(159, 202);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(188, 20);
             this.txtBuscar.TabIndex = 15;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(303, 217);
+            this.btnConsultar.Location = new System.Drawing.Point(353, 202);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(125, 23);
             this.btnConsultar.TabIndex = 16;
@@ -246,22 +262,11 @@
             this.Departamento,
             this.Puesto,
             this.SalarioMensual});
-            this.dgvEmpleados.Location = new System.Drawing.Point(12, 253);
+            this.dgvEmpleados.Location = new System.Drawing.Point(8, 231);
             this.dgvEmpleados.MultiSelect = false;
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(643, 183);
             this.dgvEmpleados.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label6.Location = new System.Drawing.Point(215, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(229, 25);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Gestión de Empleados";
             // 
             // Id
             // 
@@ -305,21 +310,16 @@
             this.SalarioMensual.Name = "SalarioMensual";
             this.SalarioMensual.ReadOnly = true;
             // 
-            // txtDepartameto
+            // label6
             // 
-            this.txtDepartameto.FormattingEnabled = true;
-            this.txtDepartameto.Location = new System.Drawing.Point(413, 11);
-            this.txtDepartameto.Name = "txtDepartameto";
-            this.txtDepartameto.Size = new System.Drawing.Size(121, 21);
-            this.txtDepartameto.TabIndex = 16;
-            // 
-            // txtPuesto
-            // 
-            this.txtPuesto.FormattingEnabled = true;
-            this.txtPuesto.Location = new System.Drawing.Point(413, 38);
-            this.txtPuesto.Name = "txtPuesto";
-            this.txtPuesto.Size = new System.Drawing.Size(121, 21);
-            this.txtPuesto.TabIndex = 17;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label6.Location = new System.Drawing.Point(215, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(229, 25);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Gestión de Empleados";
             // 
             // FrmEmpleados
             // 

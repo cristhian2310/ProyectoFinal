@@ -12,7 +12,7 @@ namespace ProyectoFinal
 {
     public partial class FrmIngresos : Form
     {
-        ProyectoFinalEntities1 _conexion = new ProyectoFinalEntities1();
+        ProyectoFinalEntities2 _conexion = new ProyectoFinalEntities2();
 
         public FrmIngresos()
         {

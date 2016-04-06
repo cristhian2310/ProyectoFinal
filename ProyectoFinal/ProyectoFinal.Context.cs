@@ -13,10 +13,10 @@ namespace ProyectoFinal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProyectoFinalEntities1 : DbContext
+    public partial class ProyectoFinalEntities2 : DbContext
     {
-        public ProyectoFinalEntities1()
-            : base("name=ProyectoFinalEntities1")
+        public ProyectoFinalEntities2()
+            : base("name=ProyectoFinalEntities2")
         {
         }
     
@@ -26,10 +26,11 @@ namespace ProyectoFinal
         }
     
         public virtual DbSet<Departamentos> Departamentos { get; set; }
-        public virtual DbSet<Puestos> Puestos { get; set; }
         public virtual DbSet<Empleados> Empleados { get; set; }
+        public virtual DbSet<Puestos> Puestos { get; set; }
         public virtual DbSet<RegistroTransacciones> RegistroTransacciones { get; set; }
         public virtual DbSet<TiposDeducciones> TiposDeducciones { get; set; }
         public virtual DbSet<TiposIngresos> TiposIngresos { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }

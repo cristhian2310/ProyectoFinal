@@ -12,7 +12,7 @@ namespace ProyectoFinal
 {
     public partial class FrmDeducciones : Form
     {
-        ProyectoFinalEntities1 _conexion = new ProyectoFinalEntities1();
+        ProyectoFinalEntities2 _conexion = new ProyectoFinalEntities2();
 
         public FrmDeducciones()
         {
@@ -37,9 +37,10 @@ namespace ProyectoFinal
         {
             txtId.Text = "";
             txtNombre.Text = "";
-            txtEstado.SelectedValue = 0;
-            txtDepende.SelectedValue = 0;
-            txtTipo.SelectedValue = 0;
+            txtEstado.Text = "";
+            txtDepende.Text = "";
+            txtTipo.Text = "";
+            txtMonto.Text = "";
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

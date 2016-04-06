@@ -13,7 +13,7 @@ namespace ProyectoFinal
 {
     public partial class FrmEmpleados : Form
     {
-        ProyectoFinalEntities1 conexion = new ProyectoFinalEntities1();
+        ProyectoFinalEntities2 conexion = new ProyectoFinalEntities2();
         public FrmEmpleados()
         {
             InitializeComponent();
@@ -114,19 +114,24 @@ namespace ProyectoFinal
                 var idPuesto = Convert.ToInt32(txtPuesto.SelectedValue);
                 var salario = conexion.Puestos.FirstOrDefault(u => u.Id ==idPuesto);
 
-                if (salario.SalarioMaximo >= Convert.ToDouble(txtSalario.Text) &&
-                    salario.SalarioMinimo <= Convert.ToDouble(txtSalario.Text))
+                if (salario.SalarioMaximo >= Convert.ToDouble(txtSalario.Text))
                 {
 
-                    empleados.SalarioMensual = Convert.ToDouble(txtSalario.Text);
+                    if (salario.SalarioMinimo <= Convert.ToDouble(txtSalario.Text))
+                    {
+                        empleados.SalarioMensual = Convert.ToDouble(txtSalario.Text);
 
-                    conexion.Empleados.Add(empleados);
-                    conexion.SaveChanges();
-                    cargarEmpleados();
+                        conexion.Empleados.Add(empleados);
+                        conexion.SaveChanges();
+                        cargarEmpleados();
+                    }
+                    else {
+                        MessageBox.Show("El salario es muy bajo para este puesto.");
+                    }
                 }
                 else {
 
-                    MessageBox.Show("El salario no esta en el margen de ganacia del cargo seleccionado.");
+                    MessageBox.Show("El salario es muy grande para este puesto.");
                 }
             }
             else
@@ -142,6 +147,7 @@ namespace ProyectoFinal
             txtDepartameto.Text = "";
             txtPuesto.Text = "";
             txtCedula.Text = "";
+            txtSalario.Text = "";
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
